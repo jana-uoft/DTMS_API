@@ -13,7 +13,7 @@ paths:
   /annotation:
     post:
       tags:
-      - "Annotation"
+      - "2. Annotation"
       summary: "uploads information about an Annotation"
       description: "Add a new Annotation."
       parameters:
@@ -31,7 +31,7 @@ paths:
   /annotation/{annotation_UUID}:
     get:
       tags:
-      - "Annotation"
+      - "2. Annotation"
       summary: "loads information about an Annotation"
       description: "Get information about a specific Annotation."
       parameters:
@@ -47,7 +47,7 @@ paths:
             $ref: "#/definitions/Annotation"
     put:
       tags:
-      - "Annotation"
+      - "2. Annotation"
       summary: "modifies information about an Annotation"
       description: "Update the information about a specific Annotation."
       parameters:
@@ -69,7 +69,7 @@ paths:
             $ref: "#/definitions/Annotation"
     delete:
       tags:
-      - "Annotation"
+      - "2. Annotation"
       summary: "removes information about an Annotation"
       description: "Remove an Annotation."
       parameters:
@@ -84,7 +84,7 @@ paths:
   /canvas:
     post:
       tags:
-      - "Canvas"
+      - "4. Canvas"
       summary: "uploads information about a Canvas"
       description: "Add a new Canvas."
       parameters:
@@ -102,7 +102,7 @@ paths:
   /canvas/{canvas_UUID}:
     get:
       tags:
-      - "Canvas"
+      - "4. Canvas"
       summary: "loads information about a Canvas"
       description: "Get information about a specific Canvas."
       parameters:
@@ -118,7 +118,7 @@ paths:
             $ref: "#/definitions/Canvas"
     put:
       tags:
-      - "Canvas"
+      - "4. Canvas"
       summary: "modifies information about a Canvas"
       description: "Update the information about a specific Canvas."
       parameters:
@@ -140,7 +140,7 @@ paths:
             $ref: "#/definitions/Canvas"
     delete:
       tags:
-      - "Canvas"
+      - "4. Canvas"
       summary: "removes information about a Canvas"
       description: "Remove a Canvas."
       parameters:
@@ -155,7 +155,7 @@ paths:
   /collection:
     post:
       tags:
-      - "Collection"
+      - "7. Collection"
       summary: "uploads information about a Collection"
       description: "Add a new Collection."
       parameters:
@@ -173,7 +173,7 @@ paths:
   /collection/{collection_UUID}:
     get:
       tags:
-      - "Collection"
+      - "7. Collection"
       summary: "loads information about a Collection"
       description: "Get information about a specific Collection."
       parameters:
@@ -189,7 +189,7 @@ paths:
             $ref: "#/definitions/Collection"
     put:
       tags:
-      - "Collection"
+      - "7. Collection"
       summary: "modifies information about a Collection"
       description: "Update the information about a specific Collection."
       parameters:
@@ -211,7 +211,7 @@ paths:
             $ref: "#/definitions/Collection"
     delete:
       tags:
-      - "Collection"
+      - "7. Collection"
       summary: "removes information about a Collection"
       description: "Remove a Collection."
       parameters:
@@ -226,7 +226,7 @@ paths:
   /image:
     post:
       tags:
-      - "Image"
+      - "1. Image"
       summary: "uploads infromation about a IIIF image file"
       description: "Add a new IIIF Image information object. (info.JSON)"
       parameters:
@@ -242,10 +242,10 @@ paths:
           description: "Success"
           schema:
             $ref: "#/definitions/Image"
-  /image/{image_UUID}/:
+  /image/{image_UUID}:
     get:
       tags:
-      - "Image"
+      - "1. Image"
       summary: "loads information about an IIIF image file"
       description: "Get information about a specific Image."
       parameters:
@@ -261,7 +261,7 @@ paths:
             $ref: "#/definitions/Image"
     put:
       tags:
-      - "Image"
+      - "1. Image"
       summary: "modifies information about an IIIF image file"
       description: "Update the information about a specific Image."
       parameters:
@@ -284,7 +284,7 @@ paths:
             $ref: "#/definitions/Image"
     delete:
       tags:
-      - "Image"
+      - "1. Image"
       summary: "removes information about an IIIF image file"
       description: "Remove a IIIF Image information object. Not the actual Image file"
       parameters:
@@ -299,7 +299,7 @@ paths:
   /image/{image_UUID}/{region}/{size}/{rotation}/{quality}.{format}:
     get:
       tags:
-      - "Image"
+      - "1. Image"
       summary: "loads a IIIF image file"
       description: "The requested image content is first extracted as a region of\
         \ the complete image, then scaled to the requested size, mirrored and/or rotated,\
@@ -354,7 +354,7 @@ paths:
   /layer/annotation:
     get:
       tags:
-      - "SearchAnnotations"
+      - "9. SearchAnnotations"
       summary: "searches Annotations in a Layer"
       description: "Search Annotations in a Layer."
       parameters:
@@ -370,7 +370,7 @@ paths:
         in: "query"
         description: "A space separated list of motivation terms. If multiple motivations\
           \ are supplied, an annotation matches the search if any of the motivations\
-          \ are present. [sc:painting, non-painting, oa:commenting, oa:describing,\
+          \ are  present. [sc:painting, non-painting, oa:commenting, oa:describing,\
           \ oa:tagging, oa:linking]."
         required: false
         type: "string"
@@ -398,7 +398,7 @@ paths:
   /list:
     post:
       tags:
-      - "AnnotationList"
+      - "3. AnnotationList"
       summary: "uploads information about an Annotation List"
       description: "Add a new Annotation List."
       parameters:
@@ -416,7 +416,7 @@ paths:
   /list/{list_UUID}:
     get:
       tags:
-      - "AnnotationList"
+      - "3. AnnotationList"
       summary: "loads information about an Annotation List"
       description: "Get information about a specific Annotation List."
       parameters:
@@ -432,7 +432,7 @@ paths:
             $ref: "#/definitions/AnnotationList"
     put:
       tags:
-      - "AnnotationList"
+      - "3. AnnotationList"
       summary: "modifies information about an Annotation List"
       description: "Update the information about a specific Annotation List."
       parameters:
@@ -454,7 +454,7 @@ paths:
             $ref: "#/definitions/AnnotationList"
     delete:
       tags:
-      - "AnnotationList"
+      - "3. AnnotationList"
       summary: "removes information about an Annotation List"
       description: "Remove an Annotation List."
       parameters:
@@ -469,7 +469,7 @@ paths:
   /manifest:
     post:
       tags:
-      - "Manifest"
+      - "6. Manifest"
       summary: "uploads information about a Manifest"
       description: "Add a new Manifest."
       parameters:
@@ -487,7 +487,7 @@ paths:
   /manifest/annotation:
     get:
       tags:
-      - "SearchAnnotations"
+      - "9. SearchAnnotations"
       summary: "searches Annotations in a Manifest"
       description: "Search Annotations in a Manifest."
       parameters:
@@ -503,7 +503,7 @@ paths:
         in: "query"
         description: "A space separated list of motivation terms. If multiple motivations\
           \ are supplied, an annotation matches the search if any of the motivations\
-          \ are present. [sc:painting, non-painting, oa:commenting, oa:describing,\
+          \ are  present. [sc:painting, non-painting, oa:commenting, oa:describing,\
           \ oa:tagging, oa:linking]."
         required: false
         type: "string"
@@ -531,7 +531,7 @@ paths:
   /manifest/{manifest_UUID}:
     get:
       tags:
-      - "Manifest"
+      - "6. Manifest"
       summary: "loads information about a Manifest"
       description: "Get information about a specific Manifest."
       parameters:
@@ -547,7 +547,7 @@ paths:
             $ref: "#/definitions/Manifest"
     put:
       tags:
-      - "Manifest"
+      - "6. Manifest"
       summary: "modifies information about a Manifest"
       description: "Update the information about a specific Manifest."
       parameters:
@@ -569,7 +569,7 @@ paths:
             $ref: "#/definitions/Manifest"
     delete:
       tags:
-      - "Manifest"
+      - "6. Manifest"
       summary: "removes information about a Manifest"
       description: "Remove a Manifest."
       parameters:
@@ -584,7 +584,7 @@ paths:
   /range:
     post:
       tags:
-      - "Range"
+      - "5. Range"
       summary: "uploads information about a Range"
       description: "Add a new Range."
       parameters:
@@ -602,7 +602,7 @@ paths:
   /range/annotation:
     get:
       tags:
-      - "SearchAnnotations"
+      - "9. SearchAnnotations"
       summary: "searches Annotations in a Range"
       description: "Search Annotations in a Range."
       parameters:
@@ -618,7 +618,7 @@ paths:
         in: "query"
         description: "A space separated list of motivation terms. If multiple motivations\
           \ are supplied, an annotation matches the search if any of the motivations\
-          \ are present. [sc:painting, non-painting, oa:commenting, oa:describing,\
+          \ are  present. [sc:painting, non-painting, oa:commenting, oa:describing,\
           \ oa:tagging, oa:linking]."
         required: false
         type: "string"
@@ -646,7 +646,7 @@ paths:
   /range/{range_UUID}:
     get:
       tags:
-      - "Range"
+      - "5. Range"
       summary: "loads information about a Range"
       description: "Get information about a specific Range."
       parameters:
@@ -662,7 +662,7 @@ paths:
             $ref: "#/definitions/Range"
     put:
       tags:
-      - "Range"
+      - "5. Range"
       summary: "modifies information about a Range"
       description: "Update the information about a specific Range."
       parameters:
@@ -684,7 +684,7 @@ paths:
             $ref: "#/definitions/Range"
     delete:
       tags:
-      - "Range"
+      - "5. Range"
       summary: "removes information about a Range"
       description: "Remove a Range."
       parameters:
@@ -699,7 +699,7 @@ paths:
   /sequence:
     post:
       tags:
-      - "Sequence"
+      - "8. Sequence"
       summary: "uploads information about a Sequence"
       description: "Add a new Sequence."
       parameters:
@@ -717,7 +717,7 @@ paths:
   /sequence/annotation:
     get:
       tags:
-      - "SearchAnnotations"
+      - "9. SearchAnnotations"
       summary: "searches Annotations in a Sequence"
       description: "Search Annotations in a Sequence."
       parameters:
@@ -733,7 +733,7 @@ paths:
         in: "query"
         description: "A space separated list of motivation terms. If multiple motivations\
           \ are supplied, an annotation matches the search if any of the motivations\
-          \ are present. [sc:painting, non-painting, oa:commenting, oa:describing,\
+          \ are  present. [sc:painting, non-painting, oa:commenting, oa:describing,\
           \ oa:tagging, oa:linking]."
         required: false
         type: "string"
@@ -761,7 +761,7 @@ paths:
   /sequence/{sequence_UUID}:
     get:
       tags:
-      - "Sequence"
+      - "8. Sequence"
       summary: "loads information about a Sequence"
       description: "Get information about a specific Sequence."
       parameters:
@@ -777,7 +777,7 @@ paths:
             $ref: "#/definitions/Sequence"
     put:
       tags:
-      - "Sequence"
+      - "8. Sequence"
       summary: "modifies information about a Sequence"
       description: "Update the information about a specific Sequence."
       parameters:
@@ -799,7 +799,7 @@ paths:
             $ref: "#/definitions/Sequence"
     delete:
       tags:
-      - "Sequence"
+      - "8. Sequence"
       summary: "removes information about a Sequence"
       description: "Remove a Sequence."
       parameters:
@@ -1816,7 +1816,7 @@ parameters:
     in: "query"
     description: "A space separated list of motivation terms. If multiple motivations\
       \ are supplied, an annotation matches the search if any of the motivations are\
-      \ present. [sc:painting, non-painting, oa:commenting, oa:describing, oa:tagging,\
+      \  present. [sc:painting, non-painting, oa:commenting, oa:describing, oa:tagging,\
       \ oa:linking]."
     required: false
     type: "string"
