@@ -284,7 +284,11 @@ paths:
     get:
       tags:
       - "Image"
-      description: "View a IIIF Image."
+      summary: "loads a IIIF image file"
+      description: "The requested image content is first extracted as a region of\
+        \ the complete image, then scaled to the requested size, mirrored and/or rotated,\
+        \ and finally transformed into the color quality and format.  This resulting\
+        \ image content is returned as the representation for the URI.."
       parameters:
       - name: "image_UUID"
         in: "path"
