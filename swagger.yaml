@@ -14,6 +14,7 @@ paths:
     post:
       tags:
       - "Annotation"
+      summary: "uploads information about an Annotation"
       description: "Add a new Annotation."
       parameters:
       - in: "body"
@@ -31,6 +32,7 @@ paths:
     get:
       tags:
       - "Annotation"
+      summary: "loads information about an Annotation"
       description: "Get information about a specific Annotation."
       parameters:
       - name: "annotation_UUID"
@@ -46,6 +48,7 @@ paths:
     put:
       tags:
       - "Annotation"
+      summary: "modifies information about an Annotation"
       description: "Update the information about a specific Annotation."
       parameters:
       - name: "annotation_UUID"
@@ -67,6 +70,7 @@ paths:
     delete:
       tags:
       - "Annotation"
+      summary: "removes information about an Annotation"
       description: "Remove an Annotation."
       parameters:
       - name: "annotation_UUID"
@@ -81,6 +85,7 @@ paths:
     post:
       tags:
       - "Canvas"
+      summary: "uploads information about a Canvas"
       description: "Add a new Canvas."
       parameters:
       - in: "body"
@@ -98,6 +103,7 @@ paths:
     get:
       tags:
       - "Canvas"
+      summary: "loads information about a Canvas"
       description: "Get information about a specific Canvas."
       parameters:
       - name: "canvas_UUID"
@@ -113,6 +119,7 @@ paths:
     put:
       tags:
       - "Canvas"
+      summary: "modifies information about a Canvas"
       description: "Update the information about a specific Canvas."
       parameters:
       - name: "canvas_UUID"
@@ -134,6 +141,7 @@ paths:
     delete:
       tags:
       - "Canvas"
+      summary: "removes information about a Canvas"
       description: "Remove a Canvas."
       parameters:
       - name: "canvas_UUID"
@@ -148,6 +156,7 @@ paths:
     post:
       tags:
       - "Collection"
+      summary: "uploads information about a Collection"
       description: "Add a new Collection."
       parameters:
       - in: "body"
@@ -165,6 +174,7 @@ paths:
     get:
       tags:
       - "Collection"
+      summary: "loads information about a Collection"
       description: "Get information about a specific Collection."
       parameters:
       - name: "collection_UUID"
@@ -180,6 +190,7 @@ paths:
     put:
       tags:
       - "Collection"
+      summary: "modifies information about a Collection"
       description: "Update the information about a specific Collection."
       parameters:
       - name: "collection_UUID"
@@ -201,6 +212,7 @@ paths:
     delete:
       tags:
       - "Collection"
+      summary: "removes information about a Collection"
       description: "Remove a Collection."
       parameters:
       - name: "collection_UUID"
@@ -234,6 +246,7 @@ paths:
     get:
       tags:
       - "Image"
+      summary: "loads information about an IIIF image file"
       description: "Get information about a specific Image."
       parameters:
       - name: "image_UUID"
@@ -249,6 +262,7 @@ paths:
     put:
       tags:
       - "Image"
+      summary: "modifies information about an IIIF image file"
       description: "Update the information about a specific Image."
       parameters:
       - name: "image_UUID"
@@ -271,6 +285,7 @@ paths:
     delete:
       tags:
       - "Image"
+      summary: "removes information about an IIIF image file"
       description: "Remove a IIIF Image information object. Not the actual Image file"
       parameters:
       - name: "image_UUID"
@@ -340,6 +355,7 @@ paths:
     get:
       tags:
       - "SearchAnnotations"
+      summary: "searches Annotations in a Layer"
       description: "Search Annotations in a Layer."
       parameters:
       - name: "q"
@@ -383,6 +399,7 @@ paths:
     post:
       tags:
       - "AnnotationList"
+      summary: "uploads information about an Annotation List"
       description: "Add a new Annotation List."
       parameters:
       - in: "body"
@@ -400,6 +417,7 @@ paths:
     get:
       tags:
       - "AnnotationList"
+      summary: "loads information about an Annotation List"
       description: "Get information about a specific Annotation List."
       parameters:
       - name: "list_UUID"
@@ -415,6 +433,7 @@ paths:
     put:
       tags:
       - "AnnotationList"
+      summary: "modifies information about an Annotation List"
       description: "Update the information about a specific Annotation List."
       parameters:
       - name: "list_UUID"
@@ -436,6 +455,7 @@ paths:
     delete:
       tags:
       - "AnnotationList"
+      summary: "removes information about an Annotation List"
       description: "Remove an Annotation List."
       parameters:
       - name: "list_UUID"
@@ -450,6 +470,7 @@ paths:
     post:
       tags:
       - "Manifest"
+      summary: "uploads information about a Manifest"
       description: "Add a new Manifest."
       parameters:
       - in: "body"
@@ -467,6 +488,7 @@ paths:
     get:
       tags:
       - "SearchAnnotations"
+      summary: "searches Annotations in a Manifest"
       description: "Search Annotations in a Manifest."
       parameters:
       - name: "q"
@@ -510,6 +532,7 @@ paths:
     get:
       tags:
       - "Manifest"
+      summary: "loads information about a Manifest"
       description: "Get information about a specific Manifest."
       parameters:
       - name: "manifest_UUID"
@@ -525,6 +548,7 @@ paths:
     put:
       tags:
       - "Manifest"
+      summary: "modifies information about a Manifest"
       description: "Update the information about a specific Manifest."
       parameters:
       - name: "manifest_UUID"
@@ -546,6 +570,7 @@ paths:
     delete:
       tags:
       - "Manifest"
+      summary: "removes information about a Manifest"
       description: "Remove a Manifest."
       parameters:
       - name: "manifest_UUID"
@@ -560,6 +585,7 @@ paths:
     post:
       tags:
       - "Range"
+      summary: "uploads information about a Range"
       description: "Add a new Range."
       parameters:
       - in: "body"
@@ -577,6 +603,7 @@ paths:
     get:
       tags:
       - "SearchAnnotations"
+      summary: "searches Annotations in a Range"
       description: "Search Annotations in a Range."
       parameters:
       - name: "q"
@@ -620,6 +647,7 @@ paths:
     get:
       tags:
       - "Range"
+      summary: "loads information about a Range"
       description: "Get information about a specific Range."
       parameters:
       - name: "range_UUID"
@@ -635,6 +663,7 @@ paths:
     put:
       tags:
       - "Range"
+      summary: "modifies information about a Range"
       description: "Update the information about a specific Range."
       parameters:
       - name: "range_UUID"
@@ -656,6 +685,7 @@ paths:
     delete:
       tags:
       - "Range"
+      summary: "removes information about a Range"
       description: "Remove a Range."
       parameters:
       - name: "range_UUID"
@@ -670,6 +700,7 @@ paths:
     post:
       tags:
       - "Sequence"
+      summary: "uploads information about a Sequence"
       description: "Add a new Sequence."
       parameters:
       - in: "body"
@@ -687,6 +718,7 @@ paths:
     get:
       tags:
       - "SearchAnnotations"
+      summary: "searches Annotations in a Sequence"
       description: "Search Annotations in a Sequence."
       parameters:
       - name: "q"
@@ -730,6 +762,7 @@ paths:
     get:
       tags:
       - "Sequence"
+      summary: "loads information about a Sequence"
       description: "Get information about a specific Sequence."
       parameters:
       - name: "sequence_UUID"
@@ -745,6 +778,7 @@ paths:
     put:
       tags:
       - "Sequence"
+      summary: "modifies information about a Sequence"
       description: "Update the information about a specific Sequence."
       parameters:
       - name: "sequence_UUID"
@@ -766,6 +800,7 @@ paths:
     delete:
       tags:
       - "Sequence"
+      summary: "removes information about a Sequence"
       description: "Remove a Sequence."
       parameters:
       - name: "sequence_UUID"
