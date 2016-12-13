@@ -215,6 +215,7 @@ paths:
     post:
       tags:
       - "Image"
+      summary: "uploads infromation about a IIIF image file"
       description: "Add a new IIIF Image information object. (info.JSON)"
       parameters:
       - in: "body"
