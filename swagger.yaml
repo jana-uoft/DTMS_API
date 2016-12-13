@@ -1,0 +1,1800 @@
+---
+swagger: "2.0"
+info:
+  description: "This API will enable to push or pull data from a common data later\
+    \ in standard formats"
+  version: "0.0.1"
+  title: "DTMS API Specification - Initial Draft"
+host: "virtserver.swaggerhub.com"
+basePath: "/jana-dtms/DTMS_API/0.0.1"
+schemes:
+- "https"
+paths:
+  /annotation:
+    post:
+      tags:
+      - "Annotation"
+      description: "Add a new Annotation."
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Annotation object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Annotation"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Annotation"
+  /annotation/{annotation_UUID}:
+    get:
+      tags:
+      - "Annotation"
+      description: "Get information about a specific Annotation."
+      parameters:
+      - name: "annotation_UUID"
+        in: "path"
+        description: "Unique URI of the Annotation."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Annotation"
+    put:
+      tags:
+      - "Annotation"
+      description: "Update the information about a specific Annotation."
+      parameters:
+      - name: "annotation_UUID"
+        in: "path"
+        description: "Unique URI of the Annotation"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Annotation object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Annotation"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Annotation"
+    delete:
+      tags:
+      - "Annotation"
+      description: "Remove an Annotation."
+      parameters:
+      - name: "annotation_UUID"
+        in: "path"
+        description: "Unique URI of the Annotation."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successfully Removed"
+  /canvas:
+    post:
+      tags:
+      - "Canvas"
+      description: "Add a new Canvas."
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Canvas object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Canvas"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Canvas"
+  /canvas/{canvas_UUID}:
+    get:
+      tags:
+      - "Canvas"
+      description: "Get information about a specific Canvas."
+      parameters:
+      - name: "canvas_UUID"
+        in: "path"
+        description: "Unique URI of the Canvas"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Canvas"
+    put:
+      tags:
+      - "Canvas"
+      description: "Update the information about a specific Canvas."
+      parameters:
+      - name: "canvas_UUID"
+        in: "path"
+        description: "Unique URI of the Canvas."
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Canvas object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Canvas"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Canvas"
+    delete:
+      tags:
+      - "Canvas"
+      description: "Remove a Canvas."
+      parameters:
+      - name: "canvas_UUID"
+        in: "path"
+        description: "Unique URI of the Canvas."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successfully Removed"
+  /collection:
+    post:
+      tags:
+      - "Collection"
+      description: "Add a new Collection."
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Collection object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Collection"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Collection"
+  /collection/{collection_UUID}:
+    get:
+      tags:
+      - "Collection"
+      description: "Get information about a specific Collection."
+      parameters:
+      - name: "collection_UUID"
+        in: "path"
+        description: "Unique URI of the Collection"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Collection"
+    put:
+      tags:
+      - "Collection"
+      description: "Update the information about a specific Collection."
+      parameters:
+      - name: "collection_UUID"
+        in: "path"
+        description: "Unique URI of the Collection."
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Collection object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Collection"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Collection"
+    delete:
+      tags:
+      - "Collection"
+      description: "Remove a Collection."
+      parameters:
+      - name: "collection_UUID"
+        in: "path"
+        description: "Unique URI of the Collection."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successfully Removed"
+  /image:
+    post:
+      tags:
+      - "Image"
+      description: "Add a new IIIF Image information object. (info.JSON)"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Image infomration object that needs to be linked to the actual\
+          \ Image. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Image"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Image"
+  /image/{image_UUID}/:
+    get:
+      tags:
+      - "Image"
+      description: "Get information about a specific Image."
+      parameters:
+      - name: "image_UUID"
+        in: "path"
+        description: "Unique URI of the Image"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Image"
+    put:
+      tags:
+      - "Image"
+      description: "Update the information about a specific Image."
+      parameters:
+      - name: "image_UUID"
+        in: "path"
+        description: "Unique URI of the Image"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Image infomration object that needs to be linked to the actual\
+          \ Image. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Image"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Image"
+    delete:
+      tags:
+      - "Image"
+      description: "Remove a IIIF Image information object. Not the actual Image file"
+      parameters:
+      - name: "image_UUID"
+        in: "path"
+        description: "Unique URI of the Image"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successfully Removed"
+  /image/{image_UUID}/{region}/{size}/{rotation}/{quality}.{format}:
+    get:
+      tags:
+      - "Image"
+      description: "View a IIIF Image."
+      parameters:
+      - name: "image_UUID"
+        in: "path"
+        description: "Unique URI of the Image"
+        required: true
+        type: "string"
+      - name: "region"
+        in: "path"
+        description: "The region parameter defines the rectangular portion of the\
+          \ full image to be returned."
+        required: true
+        type: "string"
+        default: "full"
+      - name: "size"
+        in: "path"
+        description: "The size parameter determines the dimensions to which the extracted\
+          \ region is to be scaled."
+        required: true
+        type: "string"
+        default: "full"
+      - name: "rotation"
+        in: "path"
+        description: "The rotation parameter specifies mirroring and rotation."
+        required: true
+        type: "string"
+        default: "0"
+      - name: "quality"
+        in: "path"
+        description: "The quality parameter determines whether the image is delivered\
+          \ in color, grayscale or black and white."
+        required: true
+        type: "string"
+        default: "default"
+      - name: "format"
+        in: "path"
+        description: "The format of the returned image is expressed as an extension\
+          \ at the end of the URI."
+        required: true
+        type: "string"
+        default: "jpg"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "file"
+            description: "The IIIF Image"
+  /layer/annotation:
+    get:
+      tags:
+      - "SearchAnnotations"
+      description: "Search Annotations in a Layer."
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "A space separated list of search terms. The search terms may\
+          \ be either words (to search for within textual bodies) or URIs (to search\
+          \ identities of annotation body resources). The semantics of multiple, space\
+          \ separated terms is server implementation dependent."
+        required: true
+        type: "string"
+      - name: "motivation"
+        in: "query"
+        description: "A space separated list of motivation terms. If multiple motivations\
+          \ are supplied, an annotation matches the search if any of the motivations\
+          \ are present. [sc:painting, non-painting, oa:commenting, oa:describing,\
+          \ oa:tagging, oa:linking]."
+        required: false
+        type: "string"
+      - name: "date"
+        in: "query"
+        description: "A space separated list of date ranges. An annotation matches\
+          \ if the date on which it was created falls within any of the supplied date\
+          \ ranges. The dates must be supplied in the ISO8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ.\
+          \ The dates must be expressed in UTC and must be given in the Z based format."
+        required: false
+        type: "string"
+        format: "date-time"
+      - name: "user"
+        in: "query"
+        description: "A space separated list of URIs that are the identities of users.\
+          \ If multiple users are supplied, an annotation matches the search if any\
+          \ of the users created the annotation."
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/AnnotationList"
+  /list:
+    post:
+      tags:
+      - "AnnotationList"
+      description: "Add a new Annotation List."
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Annotation List object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/AnnotationList"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/AnnotationList"
+  /list/{list_UUID}:
+    get:
+      tags:
+      - "AnnotationList"
+      description: "Get information about a specific Annotation List."
+      parameters:
+      - name: "list_UUID"
+        in: "path"
+        description: "Unique URI of the Annotation List"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/AnnotationList"
+    put:
+      tags:
+      - "AnnotationList"
+      description: "Update the information about a specific Annotation List."
+      parameters:
+      - name: "list_UUID"
+        in: "path"
+        description: "Unique URI of the Annotation List."
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Annotation List object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/AnnotationList"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/AnnotationList"
+    delete:
+      tags:
+      - "AnnotationList"
+      description: "Remove an Annotation List."
+      parameters:
+      - name: "list_UUID"
+        in: "path"
+        description: "Unique URI of the Annotation List."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successfully Removed"
+  /manifest:
+    post:
+      tags:
+      - "Manifest"
+      description: "Add a new Manifest."
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Manifest object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Manifest"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Manifest"
+  /manifest/annotation:
+    get:
+      tags:
+      - "SearchAnnotations"
+      description: "Search Annotations in a Manifest."
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "A space separated list of search terms. The search terms may\
+          \ be either words (to search for within textual bodies) or URIs (to search\
+          \ identities of annotation body resources). The semantics of multiple, space\
+          \ separated terms is server implementation dependent."
+        required: true
+        type: "string"
+      - name: "motivation"
+        in: "query"
+        description: "A space separated list of motivation terms. If multiple motivations\
+          \ are supplied, an annotation matches the search if any of the motivations\
+          \ are present. [sc:painting, non-painting, oa:commenting, oa:describing,\
+          \ oa:tagging, oa:linking]."
+        required: false
+        type: "string"
+      - name: "date"
+        in: "query"
+        description: "A space separated list of date ranges. An annotation matches\
+          \ if the date on which it was created falls within any of the supplied date\
+          \ ranges. The dates must be supplied in the ISO8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ.\
+          \ The dates must be expressed in UTC and must be given in the Z based format."
+        required: false
+        type: "string"
+        format: "date-time"
+      - name: "user"
+        in: "query"
+        description: "A space separated list of URIs that are the identities of users.\
+          \ If multiple users are supplied, an annotation matches the search if any\
+          \ of the users created the annotation."
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/AnnotationList"
+  /manifest/{manifest_UUID}:
+    get:
+      tags:
+      - "Manifest"
+      description: "Get information about a specific Manifest."
+      parameters:
+      - name: "manifest_UUID"
+        in: "path"
+        description: "Unique URI of the Manifest"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Manifest"
+    put:
+      tags:
+      - "Manifest"
+      description: "Update the information about a specific Manifest."
+      parameters:
+      - name: "manifest_UUID"
+        in: "path"
+        description: "Unique URI of the Manifest."
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Manifest object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Manifest"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Manifest"
+    delete:
+      tags:
+      - "Manifest"
+      description: "Remove a Manifest."
+      parameters:
+      - name: "manifest_UUID"
+        in: "path"
+        description: "Unique URI of the Manifest."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successfully Removed"
+  /range:
+    post:
+      tags:
+      - "Range"
+      description: "Add a new Range."
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Range object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Range"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Range"
+  /range/annotation:
+    get:
+      tags:
+      - "SearchAnnotations"
+      description: "Search Annotations in a Range."
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "A space separated list of search terms. The search terms may\
+          \ be either words (to search for within textual bodies) or URIs (to search\
+          \ identities of annotation body resources). The semantics of multiple, space\
+          \ separated terms is server implementation dependent."
+        required: true
+        type: "string"
+      - name: "motivation"
+        in: "query"
+        description: "A space separated list of motivation terms. If multiple motivations\
+          \ are supplied, an annotation matches the search if any of the motivations\
+          \ are present. [sc:painting, non-painting, oa:commenting, oa:describing,\
+          \ oa:tagging, oa:linking]."
+        required: false
+        type: "string"
+      - name: "date"
+        in: "query"
+        description: "A space separated list of date ranges. An annotation matches\
+          \ if the date on which it was created falls within any of the supplied date\
+          \ ranges. The dates must be supplied in the ISO8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ.\
+          \ The dates must be expressed in UTC and must be given in the Z based format."
+        required: false
+        type: "string"
+        format: "date-time"
+      - name: "user"
+        in: "query"
+        description: "A space separated list of URIs that are the identities of users.\
+          \ If multiple users are supplied, an annotation matches the search if any\
+          \ of the users created the annotation."
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/AnnotationList"
+  /range/{range_UUID}:
+    get:
+      tags:
+      - "Range"
+      description: "Get information about a specific Range."
+      parameters:
+      - name: "range_UUID"
+        in: "path"
+        description: "Unique URI of the Range"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Range"
+    put:
+      tags:
+      - "Range"
+      description: "Update the information about a specific Range."
+      parameters:
+      - name: "range_UUID"
+        in: "path"
+        description: "Unique URI of the Range."
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Range object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Range"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Range"
+    delete:
+      tags:
+      - "Range"
+      description: "Remove a Range."
+      parameters:
+      - name: "range_UUID"
+        in: "path"
+        description: "Unique URI of the Range."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successfully Removed"
+  /sequence:
+    post:
+      tags:
+      - "Sequence"
+      description: "Add a new Sequence."
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Sequence object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Sequence"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Sequence"
+  /sequence/annotation:
+    get:
+      tags:
+      - "SearchAnnotations"
+      description: "Search Annotations in a Sequence."
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "A space separated list of search terms. The search terms may\
+          \ be either words (to search for within textual bodies) or URIs (to search\
+          \ identities of annotation body resources). The semantics of multiple, space\
+          \ separated terms is server implementation dependent."
+        required: true
+        type: "string"
+      - name: "motivation"
+        in: "query"
+        description: "A space separated list of motivation terms. If multiple motivations\
+          \ are supplied, an annotation matches the search if any of the motivations\
+          \ are present. [sc:painting, non-painting, oa:commenting, oa:describing,\
+          \ oa:tagging, oa:linking]."
+        required: false
+        type: "string"
+      - name: "date"
+        in: "query"
+        description: "A space separated list of date ranges. An annotation matches\
+          \ if the date on which it was created falls within any of the supplied date\
+          \ ranges. The dates must be supplied in the ISO8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ.\
+          \ The dates must be expressed in UTC and must be given in the Z based format."
+        required: false
+        type: "string"
+        format: "date-time"
+      - name: "user"
+        in: "query"
+        description: "A space separated list of URIs that are the identities of users.\
+          \ If multiple users are supplied, an annotation matches the search if any\
+          \ of the users created the annotation."
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/AnnotationList"
+  /sequence/{sequence_UUID}:
+    get:
+      tags:
+      - "Sequence"
+      description: "Get information about a specific Sequence."
+      parameters:
+      - name: "sequence_UUID"
+        in: "path"
+        description: "Unique URI of the Sequence"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Sequence"
+    put:
+      tags:
+      - "Sequence"
+      description: "Update the information about a specific Sequence."
+      parameters:
+      - name: "sequence_UUID"
+        in: "path"
+        description: "Unique URI of the Sequence."
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Sequence object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Sequence"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Sequence"
+    delete:
+      tags:
+      - "Sequence"
+      description: "Remove a Sequence."
+      parameters:
+      - name: "sequence_UUID"
+        in: "path"
+        description: "Unique URI of the Sequence."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successfully Removed"
+definitions:
+  Image:
+    required:
+    - "@context"
+    - "@id"
+    - "height"
+    - "profile"
+    - "protocol"
+    - "width"
+    properties:
+      '@context':
+        type: "string"
+        description: "The context document that describes the semantics of the terms\
+          \ used in the document. This must be the URI: http://iiif.io/api/image/2/context.json\
+          \ for version 2.1 of the IIIF Image API. This document allows the response\
+          \ to be interpreted as RDF, using the JSON-LD serialization."
+        default: "http://iiif.io/api/image/2/context.json"
+      '@id':
+        type: "string"
+        description: "The base URI of the image as defined in URI Syntax, including\
+          \ scheme, server, prefix and identifier without a trailing slash."
+      '@type':
+        type: "string"
+        description: "The type for the Image. If present, the value must be the string\
+          \ iiif:Image."
+        default: "iiif:Image"
+      protocol:
+        type: "string"
+        description: "The URI http://iiif.io/api/image which can be used to determine\
+          \ that the document describes an image service which is a version of the\
+          \ IIIF Image API."
+        default: "http://iiif.io/api/image"
+      width:
+        type: "integer"
+        description: "The width in pixels of the full image content, given as an integer."
+      height:
+        type: "integer"
+        description: "The height in pixels of the full image content, given as an\
+          \ integer."
+      profile:
+        type: "array"
+        description: "A list of profiles, indicated by either a URI or an object describing\
+          \ the features supported. The first entry in the list must be a compliance\
+          \ level URI. The @context, @id and @type properties are required when the\
+          \ profile is dereferenced from a URI, but should not be included in the\
+          \ image information response."
+      sizes:
+        type: "array"
+        description: "A set of height and width pairs the client should use in the\
+          \ size parameter to request complete images at different sizes that the\
+          \ server has available."
+        items:
+          $ref: "#/definitions/Size"
+      tiles:
+        type: "array"
+        description: "A set of descriptions of the parameters to use to request regions\
+          \ of the image (tiles) that are efficient for the server to deliver. Each\
+          \ description gives a width, optionally a height for non-square tiles, and\
+          \ a set of scale factors at which tiles of those dimensions are available."
+        items:
+          $ref: "#/definitions/Tile"
+      attribution:
+        type: "array"
+        description: "Text that must be shown when content obtained from the Image\
+          \ API service is displayed or used. It might include copyright or ownership\
+          \ statements, or a simple acknowledgement of the providing institution."
+        items:
+          $ref: "#/definitions/Attribution"
+      logo:
+        $ref: "#/definitions/Logo"
+      service:
+        type: "array"
+        description: "The service property provides hooks for additional information\
+          \ to be included in the image description, for example a link to an authentication\
+          \ service. The value may be an object or a list of objects."
+        items:
+          $ref: "#/definitions/Service"
+  Size:
+    required:
+    - "height"
+    - "width"
+    properties:
+      '@type':
+        type: "string"
+        description: "The type of the object. If present, the value must be the string\
+          \ iiif:Size."
+        default: "iiif:Size"
+      width:
+        type: "integer"
+        description: "The width in pixels of the image to be requested, given as an\
+          \ integer."
+      height:
+        type: "integer"
+        description: "The height in pixels of the image to be requested, given as\
+          \ an integer."
+  Tile:
+    required:
+    - "scaleFactors"
+    - "width"
+    properties:
+      '@type':
+        type: "string"
+        description: "The type of the Tile. If present, the value must be the string\
+          \ iiif:Tile."
+        default: "iiif:Tile"
+      width:
+        type: "integer"
+        description: "The width in pixels of the predefined tiles to be requested,\
+          \ given as an integer."
+      height:
+        type: "integer"
+        description: "The height in pixels of the predefined tiles to be requested,\
+          \ given as an integer. If it is not specified in the JSON, then it defaults\
+          \ to the same as width, resulting in square tiles."
+      scaleFactors:
+        type: "array"
+        description: "The set of resolution scaling factors for the image’s predefined\
+          \ tiles, expressed as positive integers by which to divide the full size\
+          \ of the image. For example, a scale factor of 4 indicates that the service\
+          \ can efficiently deliver images at 1/4 or 25% of the height and width of\
+          \ the full image. A particular scale factor value should appear only once\
+          \ in the tiles list."
+        items:
+          type: "integer"
+  Attribution:
+    properties:
+      '@value':
+        type: "string"
+      '@language':
+        type: "string"
+  Profile:
+    required:
+    - "@context"
+    - "@id"
+    - "@type"
+    properties:
+      '@context':
+        type: "string"
+        description: "The string “http://iiif.io/api/image/2/context.json”. This should\
+          \ be included only if the profile’s URI is dereferenced."
+        default: "http://iiif.io/api/image/2/context.json"
+      '@id':
+        type: "string"
+        description: "The URI of the profile."
+      '@type':
+        type: "string"
+        description: "The type of the object. If present, the value must be the string\
+          \ 'iiif:ImageProfile'"
+        default: "iiif:ImageProfile"
+      formats:
+        type: "array"
+        description: "The set of image format parameter values available for the image.\
+          \ If not specified then clients should assume only formats declared in the\
+          \ compliance level document. (eg): 'gif', 'pdf'"
+        items:
+          type: "string"
+      maxArea:
+        type: "integer"
+        description: "The maximum area in pixels supported for this image. Requests\
+          \ for images sizes with width*height greater than this may not be supported."
+      maxHeight:
+        type: "integer"
+        description: "The maximum height in pixels supported for this image. Requests\
+          \ for images sizes with height greater than this may not be supported. If\
+          \ maxWidth is specified and maxHeight is not, then clients should infer\
+          \ that maxHeight = maxWidth."
+      maxWidth:
+        type: "integer"
+        description: "The maximum width in pixels supported for this image. Requests\
+          \ for images sizes with width greater than this may not be supported. must\
+          \ be specified if maxHeight is specified."
+      qualities:
+        type: "array"
+        description: "The set of image quality parameter values available for the\
+          \ image. If not specified then clients should assume only qualities declared\
+          \ in the compliance level document. (eg): 'color', 'gray'"
+        items:
+          type: "string"
+      supports:
+        type: "array"
+        description: "The set of features supported for the image. If not specified\
+          \ then clients should assume only features declared in the compliance level\
+          \ document."
+        items:
+          type: "string"
+          description: "baseUriRedirect, canonicalLinkHeader, cors, profileLinkHeader,\
+            \ etc"
+    description: "In order to specify additional features that are supported for the\
+      \ image, a profile object may be added to the profile list. Objects in the profile\
+      \ list have the following properties. The @context, @id and @type properties\
+      \ are required when the profile is dereferenced from a URI, but should not be\
+      \ included in the image information response."
+  Logo:
+    properties:
+      '@id':
+        type: "string"
+      service:
+        $ref: "#/definitions/Service"
+    description: "A small image that represents an individual or organization associated\
+      \ with the content. Logo images must be clearly rendered when content obtained\
+      \ from the Image API service is displayed or used. Clients must not crop, rotate,\
+      \ or otherwise distort the image."
+  Service:
+    required:
+    - "@context"
+    - "@id"
+    - "profile"
+    properties:
+      '@context':
+        type: "string"
+        description: "Service information included in the API responses must be both\
+          \ valid JSON-LD, and include a service-specific @context."
+      '@id':
+        type: "string"
+        description: "Services should have an @id that can be dereferenced, and if\
+          \ so, the representation retrieved from that URI should be JSON-LD. The\
+          \ service at the URI in @id may require additional parameters, generate\
+          \ representations other than JSON-LD, or have no JSON-LD representation\
+          \ at all."
+      profile:
+        type: "string"
+        description: "Services should have a profile URI which can be used to determine\
+          \ the type of service, especially for services that do not provide a JSON-LD\
+          \ representation."
+      label:
+        type: "string"
+        description: "Services may have a label property to provide a human readable\
+          \ string to display to the user in the situation that the service has to\
+          \ be selected or manually linked to rather than automatically processed."
+    description: "Services may be included either by reference or embedded within\
+      \ the response. The decision as to whether to embed or reference is left up\
+      \ to the implementer, however embedded descriptions should be kept as short\
+      \ as possible. If the only properties of the object are @context, @id, profile\
+      \ and/or label, then the client should retrieve the resource from the URI given\
+      \ in @id."
+  Related:
+    required:
+    - "format"
+    - "label"
+    properties:
+      '@id':
+        type: "string"
+        description: "The URI link to the resource."
+      format:
+        type: "string"
+        description: "The format of the resource. [video/mpeg, text/xml, application/pdf]"
+      label:
+        type: "string"
+        description: "Short description of the resource being used."
+    description: "A link to an external resource intended to be displayed directly\
+      \ to the user, and is related to the resource that has the related property.\
+      \ Examples might include a video or academic paper about the resource, a website,\
+      \ an HTML description, and so forth. A label and the format of the related resource\
+      \ should be given to assist clients in rendering the resource to the user."
+  Rendering:
+    required:
+    - "format"
+    - "label"
+    properties:
+      '@id':
+        type: "string"
+        description: "The URI link to the resource."
+      format:
+        type: "string"
+        description: "The format of the resource. [video/mpeg, text/xml, application/pdf]"
+      label:
+        type: "string"
+        description: "Short description of the resource being used."
+    description: "A link to an external resource intended for display or download\
+      \ by a human user. This property can be used to link from a manifest, collection\
+      \ or other resource to the preferred viewing environment for that resource,\
+      \ such as a viewer page on the publisher’s web site. Other uses include a rendering\
+      \ of a manifest as a PDF or EPUB with the images and text of the book, or a\
+      \ slide deck with images of the museum object. A label and the format of the\
+      \ rendering resource must be supplied to allow clients to present the option\
+      \ to the user."
+  SeeAlso:
+    required:
+    - "format"
+    - "profile"
+    properties:
+      '@id':
+        type: "string"
+        description: "The URI link to the resource."
+      format:
+        type: "string"
+        description: "The format of the resource. [video/mpeg, text/xml, application/pdf]"
+      profile:
+        type: "string"
+        description: "Profile URI which can be used to determine the type of service,\
+          \ especially for services that do not provide a JSON-LD representation"
+    description: "A link to a machine readable document that semantically describes\
+      \ the resource with the seeAlso property, such as an XML or RDF description.\
+      \ This document could be used for search and discovery or inferencing purposes,\
+      \ or just to provide a longer description of the resource. The profile and format\
+      \ properties of the document should be given to help the client to make appropriate\
+      \ use of the document."
+  Resource:
+    required:
+    - "@id"
+    - "@type"
+    - "format"
+    properties:
+      '@id':
+        type: "string"
+        description: "The resource must have an @id field, with the value being the\
+          \ URI at which the resource can be obtained. If a IIIF Image service is\
+          \ available for the resource, then the URL may be the complete URL to a\
+          \ particular size of the resource content. A content resource must have\
+          \ exactly one id unless it is embedded in the response, and it must be the\
+          \ http(s) URI at which the resource is published."
+      '@type':
+        type: "string"
+        description: " It should have an @type of “dctypes:Image” if the resource\
+          \ is an Image. The resource linked by the annotation must be something other\
+          \ than an image if the motivation is sc:painting. Eg: dctypes:Sound, dctypes:Text"
+      format:
+        type: "string"
+        description: "The media type of this resource. Eg: image/jpeg, audio/mpeg,\
+          \ application/tei+xml. A content resource may have exactly one format, and\
+          \ if so, it must be the value of the Content-Type header returned when the\
+          \ resource is dereferenced."
+      service:
+        $ref: "#/definitions/Service"
+      height:
+        type: "integer"
+        description: "If the resource is an Image, the height of the Image resource\
+          \ in pixels."
+      width:
+        type: "integer"
+        description: "If the resource is an Image, the width of the Image resource\
+          \ in pixels"
+      thumbnail:
+        $ref: "#/definitions/Resource_thumbnail"
+    description: "Content resources such as images or texts that are associated with\
+      \ a canvas."
+  Annotation:
+    required:
+    - "@type"
+    - "motivation"
+    - "on"
+    - "resource"
+    properties:
+      '@context':
+        type: "string"
+        description: "http://iiif.io/api/presentation/2/context.json"
+        default: "http://iiif.io/api/presentation/2/context.json"
+      '@id':
+        type: "string"
+        description: "Annotations may have their own URIs, conveyed by adding an @id\
+          \ property to the JSON object, and if so should be HTTP URIs. The content\
+          \ of the annotation should be returned if the URI is dereferenced. An annotation\
+          \ should have exactly one id, must not have more than one, and the annotation’\
+          s representation should be published at that URI."
+      '@type':
+        type: "string"
+        description: "oa:Annotation"
+        default: "oa:Annotation"
+      label:
+        type: "string"
+        description: "Short description."
+      related:
+        $ref: "#/definitions/Related"
+      service:
+        $ref: "#/definitions/Service"
+      seeAlso:
+        $ref: "#/definitions/SeeAlso"
+      rendering:
+        $ref: "#/definitions/Rendering"
+      motivation:
+        type: "string"
+        description: "Each Annotation SHOULD have at least one oa:motivatedBy relationship\
+          \ to an instance of oa:Motivation. Each association of an Image must have\
+          \ the motivation field and the value must be 'sc:painting'. Eg: oa:commenting,\
+          \ oa:linking.  Note that all resources which are to be displayed as part\
+          \ of the representation are given the motivation of “sc:painting”, regardless\
+          \ of whether they are images or not. For example, a transcription of the\
+          \ text in a page is considered “painting” as it is a representation of the\
+          \ object, whereas a comment about the page is not."
+      resource:
+        $ref: "#/definitions/Resource"
+      on:
+        type: "string"
+        description: "The URI of the canvas must be repeated in the on field of the\
+          \ Annotation. This is to ensure consistency with annotations that target\
+          \ only part of the resource."
+    description: "Association of resources with their respective canvases is done\
+      \ via Annotations. Only the annotations that associate images or parts of images\
+      \ are included in the canvas in the images property."
+  AnnotationList:
+    required:
+    - "@id"
+    - "@type"
+    properties:
+      '@context':
+        type: "string"
+        description: "http://iiif.io/api/presentation/2/context.json"
+        default: "http://iiif.io/api/presentation/2/context.json"
+      '@id':
+        type: "string"
+        description: "The annotation list must have an http(s) URI given in @id, and\
+          \ the JSON representation must be returned when that URI is dereferenced.\
+          \ They may have any of the other fields defined in this specification."
+      '@type':
+        type: "string"
+        description: "sc:AnnotationList"
+        default: "sc:AnnotationList"
+      resources:
+        type: "array"
+        description: "The annotations are given in a resources list. The resource\
+          \ linked by the annotation must be something other than an image if the\
+          \ motivation is sc:painting, these are recorded in the images property of\
+          \ the canvas."
+        items:
+          $ref: "#/definitions/Annotation"
+      related:
+        $ref: "#/definitions/Related"
+      service:
+        $ref: "#/definitions/Service"
+      seeAlso:
+        $ref: "#/definitions/SeeAlso"
+      rendering:
+        $ref: "#/definitions/Rendering"
+      within:
+        type: "array"
+        description: "Each annotation list may be part of one or more layers. If the\
+          \ annotation list is part of a layer, then this must be recorded using the\
+          \ within relationship in the annotation list response."
+        items:
+          $ref: "#/definitions/Layer"
+    description: "Annotation Lists are separate resources that should be dereferenced\
+      \ when encountered. They are collections of annotations, where each annotation\
+      \ targets the Canvas or part thereof. Other resources could include the full\
+      \ text of the object, musical notations, musical performances, diagram transcriptions,\
+      \ commentary annotations, tags, video, data and more. These additional resources\
+      \ are included in annotation lists, referenced from the canvas they are associated\
+      \ with."
+  Layer:
+    required:
+    - "@id"
+    - "@type"
+    - "label"
+    properties:
+      '@context':
+        type: "string"
+        description: "http://iiif.io/api/presentation/2/context.json"
+        default: "http://iiif.io/api/presentation/2/context.json"
+      '@id':
+        type: "string"
+        description: "A layer must have exactly one id, and it must be an http(s)\
+          \ URI."
+      '@type':
+        type: "string"
+        description: "sc:Layer"
+        default: "sc:Layer"
+      label:
+        type: "string"
+        description: "Diplomatic Transcription. A layer must have at least one label."
+      related:
+        $ref: "#/definitions/Related"
+      service:
+        $ref: "#/definitions/Service"
+      seeAlso:
+        $ref: "#/definitions/SeeAlso"
+      rendering:
+        $ref: "#/definitions/Rendering"
+      otherContent:
+        type: "array"
+        description: "The annotation lists are referenced from the layer in an otherContent\
+          \ array, in the same way as they are referenced from a canvas. The annotation\
+          \ lists should be given as just URIs."
+        items:
+          type: "string"
+          description: "URIs of the Annotation List"
+    description: "Layers represent groupings of annotation lists that should be collected\
+      \ together, regardless of which canvas they target, such as all of the annotations\
+      \ that make up a particular translation of the text of a book."
+  Canvas:
+    required:
+    - "@id"
+    - "@type"
+    - "height"
+    - "label"
+    - "width"
+    properties:
+      '@context':
+        type: "string"
+        description: "The top level resource in the response must have the @context\
+          \ property, and it should appear as the very first key/value pair of the\
+          \ JSON representation."
+        default: "http://iiif.io/api/presentation/2/context.json"
+      '@id':
+        type: "string"
+        description: "Canvases must be identified by a URI and it must be an HTTP(s)\
+          \ URI. The URI of the canvas should not contain a fragment (a # followed\
+          \ by further characters), as this would make it impossible to refer to a\
+          \ segment of the canvas’s area using the #xywh= syntax. A canvas must have\
+          \ exactly one id, and it must be an http(s) URI. The canvas’s JSON representation\
+          \ should be published at that URI."
+      '@type':
+        type: "string"
+        description: "sc:Canvas"
+        default: "sc:Canvas"
+      label:
+        type: "string"
+        description: "Every canvas must have a label to display. A canvas must have\
+          \ at least one label, such as the page number or short description of the\
+          \ view."
+      related:
+        $ref: "#/definitions/Related"
+      service:
+        $ref: "#/definitions/Service"
+      seeAlso:
+        $ref: "#/definitions/SeeAlso"
+      rendering:
+        $ref: "#/definitions/Rendering"
+      thumbnail:
+        $ref: "#/definitions/Canvas_thumbnail"
+      height:
+        type: "integer"
+        description: "A canvas is a two-dimensional rectangular space with an aspect\
+          \ ratio that represents a single logical view of some part of the object,\
+          \ and the aspect ratio is given with the height and width properties."
+      width:
+        type: "integer"
+        description: "A canvas is a two-dimensional rectangular space with an aspect\
+          \ ratio that represents a single logical view of some part of the object,\
+          \ and the aspect ratio is given with the height and width properties."
+      images:
+        type: "array"
+        description: "Image resources, and only image resources, are included in the\
+          \ images property of the canvas. These are linked to the canvas via annotations.\
+          \ Only the annotations that associate images or parts of images are included\
+          \ in the canvas in the images property."
+        items:
+          $ref: "#/definitions/Canvas_images"
+      otherContent:
+        type: "array"
+        description: "Other content, such as transcriptions, video, audio or commentary,\
+          \ is provided via external annotation lists referenced in the otherContent\
+          \ property."
+    description: "The canvas represents an individual page or view and acts as a central\
+      \ point for laying out the different content resources that make up the display.\
+      \ Canvases may be dereferenced separately from the manifest via their URIs,\
+      \ and the following representation information should be returned. This information\
+      \ should be embedded within the Sequence."
+  Sequence:
+    required:
+    - "@id"
+    - "@type"
+    - "canvases"
+    properties:
+      '@context':
+        type: "string"
+        description: "http://iiif.io/api/presentation/2/context.json"
+        default: "http://iiif.io/api/presentation/2/context.json"
+      '@id':
+        type: "string"
+        description: "The URI path to this sequence. A sequence may have an id and\
+          \ must not have more than one."
+      '@type':
+        type: "string"
+        description: "sc:Sequence"
+        default: "sc:Sequence"
+      label:
+        type: "string"
+        description: "Short description. A sequence may have one or more labels, and\
+          \ if there are multiple sequences in a single manifest then they must each\
+          \ have at least one label."
+      thumbnail:
+        $ref: "#/definitions/Sequence_thumbnail"
+      related:
+        $ref: "#/definitions/Related"
+      service:
+        $ref: "#/definitions/Service"
+      seeAlso:
+        $ref: "#/definitions/SeeAlso"
+      rendering:
+        $ref: "#/definitions/Rendering"
+      viewingDirection:
+        type: "string"
+        description: "The direction that a sequence of canvases should be displayed\
+          \ to the user. [left-to-right, right-to-left, top-to-botto, bottom-to-top].\
+          \ A sequence may have exactly one viewing direction."
+      viewingHint:
+        type: "string"
+        description: "A hint to the client as to the most appropriate method of displaying\
+          \ the resource. [individuals, paged, continuous, multi-part, non-paged,\
+          \ top, facing-pages]"
+      startCanvas:
+        type: "string"
+        description: "Sequences may have a startCanvas with a single value containing\
+          \ the URI of a canvas resource that is contained within the sequence. This\
+          \ is the canvas that a viewer should initialize its display with for the\
+          \ user. If it is not present, then the viewer should use the first canvas\
+          \ in the sequence."
+      canvases:
+        type: "array"
+        description: "The list of Canvases linked to this resource."
+        items:
+          $ref: "#/definitions/Canvas"
+    description: "The sequence conveys the ordering of the views of the object. The\
+      \ default sequence (and typically the only sequence) must be embedded within\
+      \ the manifest, and may also be available from its own URI. The default sequence\
+      \ may have a URI to identify it. Any additional sequences must be referred to\
+      \ from the manifest, not embedded within it, and thus these additional sequences\
+      \ must have an HTTP URI."
+  Range:
+    required:
+    - "@id"
+    - "@type"
+    - "label"
+    properties:
+      '@id':
+        type: "string"
+        description: "A range must have exactly one id, and it must be an http(s)\
+          \ URI."
+      '@type':
+        type: "string"
+        description: "sc:Range"
+        default: "sc:Range"
+      label:
+        type: "string"
+        description: "Short description. [Front Cover, Back Cover, Introduction].\
+          \ A range must have at least one label."
+      viewingDirection:
+        type: "string"
+        description: "The direction that a sequence of canvases should be displayed\
+          \ to the user. [left-to-right, right-to-left, top-to-botto, bottom-to-top].\
+          \ A range or layer may have exactly one viewing direction."
+      viewingHint:
+        type: "string"
+        description: "Should have a viewingHint with the value top."
+        default: "top"
+      related:
+        $ref: "#/definitions/Related"
+      service:
+        $ref: "#/definitions/Service"
+      seeAlso:
+        $ref: "#/definitions/SeeAlso"
+      rendering:
+        $ref: "#/definitions/Rendering"
+      ranges:
+        type: "array"
+        description: "References to ranges within the current range. Each included\
+          \ range must be referenced via a string containing the range’s URI."
+        items:
+          type: "string"
+      startCanvas:
+        type: "string"
+        description: "A link from a sequence or range to a canvas that is contained\
+          \ within the sequence. On seeing this relationship, a client should advance\
+          \ to the specified canvas when beginning navigation through the sequence/range.\
+          \ This allows the client to begin with the first canvas that contains interesting\
+          \ content rather than requiring the user to skip past blank or empty canvases\
+          \ manually. A sequence or a range may have exactly one canvas as its start\
+          \ canvas."
+      canvases:
+        type: "array"
+        description: "References to canvases, or rectangular parts of a canvas, within\
+          \ the current range. Each included canvas must be referenced via a string\
+          \ containing the canvas’s URI."
+        items:
+          type: "string"
+      members:
+        type: "array"
+        description: "A combined list of both ranges and canvases. If the range contains\
+          \ both other ranges and canvases, and the ordering of the different types\
+          \ of resource is significant, the range should instead use the members property.\
+          \ The property’s value is an array of canvases, parts of canvases or other\
+          \ ranges. Each item in the array must be an object, and it must have the\
+          \ @id, @type, and label properties."
+        items:
+          $ref: "#/definitions/Range_members"
+      contentLayer:
+        type: "string"
+        description: "A link from a range to a layer that includes the annotations\
+          \ of content resources for that range. Clients might use this to present\
+          \ content to the user from a different canvas when interacting with the\
+          \ range, or to jump to the next part of the range within the same canvas.\
+          \ A range may have exactly one layer as its content layer."
+    description: "It may be important to describe additional structure within an object,\
+      \ such as newspaper articles that span pages, the range of non-content-bearing\
+      \ pages at the beginning of a work, or chapters within a book. These are described\
+      \ using ranges in a similar manner to sequences. Ranges are linked or embedded\
+      \ within the manifest in a structures field. It is a flat list of objects, even\
+      \ if there is only one range."
+  Manifest:
+    required:
+    - "@id"
+    - "@type"
+    - "label"
+    - "sequences"
+    properties:
+      '@context':
+        type: "string"
+        description: "The top level resource in the response must have the @context\
+          \ property, and it should appear as the very first key/value pair of the\
+          \ JSON representation."
+        default: "http://iiif.io/api/presentation/2/context.json"
+      '@id':
+        type: "string"
+        description: "The identifier in @id must always be able to be dereferenced\
+          \ to retrieve the JSON description of the manifest, and thus must use the\
+          \ http(s) URI scheme. A manifest must have exactly one id, and it must be\
+          \ the http(s) URI at which it is published."
+      '@type':
+        type: "string"
+        description: "sc:Manifest"
+        default: "sc:Manifest"
+      label:
+        type: "string"
+        description: "Short description of this Manifest. A manifest must have at\
+          \ least one label, such as the name of the object or title of the intellectual\
+          \ work that it embodies."
+      metadata:
+        type: "array"
+        description: "Descriptive metadata about the object/work. A manifest should\
+          \ have one or more metadata pairs associated with it describing the object\
+          \ or work."
+        items:
+          $ref: "#/definitions/Manifest_metadata"
+      description:
+        type: "string"
+        description: "A longer description of this Manifest. It should give some real\
+          \ information. A manifest should have one or more descriptions."
+      thumbnail:
+        $ref: "#/definitions/Manifest_thumbnail"
+      viewingDirection:
+        type: "string"
+        description: "The direction that a sequence of canvases should be displayed\
+          \ to the user. A manifest may have exactly one viewing direction, and if\
+          \ so, it applies to all of its sequences unless the sequence specifies its\
+          \ own viewing direction. [left-to-right, right-to-left, top-to-botto, bottom-to-top].\
+          \ A manifest may have exactly one viewing direction, and if so, it applies\
+          \ to all of its sequences unless the sequence specifies its own viewing\
+          \ direction."
+      viewingHint:
+        type: "string"
+        description: "A hint to the client as to the most appropriate method of displaying\
+          \ the resource. [individuals, paged, continuous, multi-part, non-paged,\
+          \ top, facing-pages]"
+      navDate:
+        type: "string"
+        format: "date"
+        description: "A date that the client can use for navigation purposes when\
+          \ presenting the resource to the user in a time-based user interface, such\
+          \ as a calendar or timeline. The value must be an xsd:dateTime literal in\
+          \ UTC, expressed in the form “YYYY-MM-DDThh:mm:ssZ”. If the exact time is\
+          \ not known, then “00:00:00” should be used. A collection or manifest may\
+          \ have exactly one navigation date associated with it."
+      license:
+        type: "string"
+        description: "A link to an external resource that describes the license or\
+          \ rights statement under which the resource may be used."
+      attribution:
+        type: "string"
+        description: "Text that must be shown when the resource it is associated with\
+          \ is displayed or used. For example, this could be used to present copyright\
+          \ or ownership statements, or simply an acknowledgement of the owning and/or\
+          \ publishing institution."
+      logo:
+        $ref: "#/definitions/Manifest_logo"
+      related:
+        $ref: "#/definitions/Related"
+      service:
+        $ref: "#/definitions/Service"
+      seeAlso:
+        $ref: "#/definitions/SeeAlso"
+      rendering:
+        $ref: "#/definitions/Rendering"
+      within:
+        type: "string"
+        description: "A link to a resource that contains the current Manifest. A collection."
+      sequences:
+        type: "array"
+        description: "Along with the descriptive information, there is a sequences\
+          \ section, which is a list of JSON-LD objects. Each object describes a Sequence,\
+          \ that represents the order of the parts of the work, each represented by\
+          \ a Canvas. The first such sequence must be included within the manifest\
+          \ as well as optionally being available from its own URI. Subsequent sequences\
+          \ must only be referenced with their identifier (@id), class (@type) and\
+          \ label and thus must be dereferenced by clients in order to process them\
+          \ if the user selects to view that sequence."
+        items:
+          $ref: "#/definitions/Sequence"
+      structures:
+        type: "array"
+        description: "Ranges are linked or embedded within the manifest in a structures\
+          \ field. It is a flat list of objects, even if there is only one range."
+        items:
+          $ref: "#/definitions/Range"
+    description: "The manifest resource represents a single object and any intellectual\
+      \ work or works embodied within that object. In particular it includes the descriptive,\
+      \ rights and linking information for the object. It then embeds the sequence(s)\
+      \ of canvases that should be rendered to the user."
+  Collection:
+    required:
+    - "@id"
+    - "@type"
+    - "label"
+    - "viewingHint"
+    properties:
+      '@context':
+        type: "string"
+        description: "http://iiif.io/api/presentation/2/context.json"
+        default: "http://iiif.io/api/presentation/2/context.json"
+      '@id':
+        type: "string"
+        description: "Collections must have a URI, and it should be an HTTP URI. A\
+          \ collection must have exactly one id, and it must be the http(s) URI at\
+          \ which it is published."
+      '@type':
+        type: "string"
+        description: "sc:Collection"
+        default: "sc:Collection"
+      label:
+        type: "string"
+        description: "Top Level Collection for Example Organization. A collection\
+          \ must have at least one label."
+      metadata:
+        type: "array"
+        description: "Descriptive metadata about the object/work. A collection should\
+          \ have one or more metadata pairs associated with it."
+        items:
+          $ref: "#/definitions/Manifest_metadata"
+      thumbnail:
+        $ref: "#/definitions/Collection_thumbnail"
+      viewingHint:
+        type: "string"
+        description: "A hint to the client as to the most appropriate method of displaying\
+          \ the resource. This specification defines the values specified in the table\
+          \ below. Other values may be given, and if they are, they must be URIs.\
+          \ Eg: individuals, paged, continuous, multi-part, non-paged, top, facing-pages"
+      description:
+        type: "string"
+        description: "Description of Collection. A collection should have one or more\
+          \ descriptions."
+      navDate:
+        type: "string"
+        format: "date"
+        description: "A date that the client can use for navigation purposes when\
+          \ presenting the resource to the user in a time-based user interface, such\
+          \ as a calendar or timeline. The value must be an xsd:dateTime literal in\
+          \ UTC, expressed in the form “YYYY-MM-DDThh:mm:ssZ”. If the exact time is\
+          \ not known, then “00:00:00” should be used. A collection or manifest may\
+          \ have exactly one navigation date associated with it."
+      related:
+        $ref: "#/definitions/Related"
+      service:
+        $ref: "#/definitions/Service"
+      seeAlso:
+        $ref: "#/definitions/SeeAlso"
+      rendering:
+        $ref: "#/definitions/Rendering"
+      attribution:
+        type: "string"
+        description: "Provided by Example Organization."
+      collections:
+        type: "array"
+        description: "References to sub-collections of the current collection. Each\
+          \ referenced collection must have the appropriate @id, @type and label,\
+          \ and may be embedded in its entirety."
+        items:
+          $ref: "#/definitions/Collection"
+      manifests:
+        type: "array"
+        description: "References to manifests contained within the current collection.\
+          \ Each referenced manifest must have the appropriate @id, @type and label."
+        items:
+          $ref: "#/definitions/Manifest"
+      members:
+        type: "array"
+        description: "In cases where the order of a collection is significant, members\
+          \ can be used to interleave both collection and manifest resources. Each\
+          \ entry in the members list must be an object and must include @id, @type,\
+          \ and label. If the entry is a collection, then viewingHint must also be\
+          \ present."
+        items:
+          $ref: "#/definitions/Collection_members"
+    description: "Collections are used to list the manifests available for viewing,\
+      \ and to describe the structures, hierarchies or curated collections that the\
+      \ physical objects are part of. The collections may include both other collections\
+      \ and manifests, in order to form a hierarchy of objects with manifests at the\
+      \ leaf nodes of the tree."
+  Resource_thumbnail:
+    properties:
+      service:
+        $ref: "#/definitions/Service"
+      '@id':
+        type: "string"
+        description: "The entire URI of the IIIF image."
+    description: "A IIIF Image to be displayed as Thumbnail. A content resource may\
+      \ have one or more thumbnails and should have at least one thumbnail if it is\
+      \ an option in a choice of resources."
+  Canvas_thumbnail:
+    properties:
+      service:
+        $ref: "#/definitions/Service"
+      '@id':
+        type: "string"
+        description: "The entire URI of the IIIF image."
+    description: "A IIIF Image to be displayed as Thumbnail. A canvas may have one\
+      \ or more thumbnails and should have at least one thumbnail if there are multiple\
+      \ images or resources that make up the representation."
+  Canvas_images:
+    properties:
+      '@type':
+        type: "string"
+        description: "oa:Annotation"
+        default: "oa:Annotation"
+      '@id':
+        type: "string"
+        description: "Annotation URI"
+  Sequence_thumbnail:
+    properties:
+      service:
+        $ref: "#/definitions/Service"
+      '@id':
+        type: "string"
+        description: "The entire URI of the IIIF image."
+    description: "A IIIF Image to be displayed as Thumbnail. AA sequence may have\
+      \ one or more thumbnails and should have at least one thumbnail if there are\
+      \ multiple sequences in a single manifest."
+  Range_members:
+    properties:
+      '@type':
+        type: "string"
+        description: "sc:Range or sc:Canvas"
+      '@id':
+        type: "string"
+        description: "A Canvas or Range object"
+      label:
+        type: "string"
+        description: "Short description. [Front Cover, Back Cover, Introduction]"
+    description: "The property’s value is an array of canvases, parts of canvases\
+      \ or other ranges."
+  Manifest_metadata:
+    properties:
+      label:
+        type: "string"
+        description: "The metadata property to be described"
+  Manifest_thumbnail:
+    properties:
+      service:
+        $ref: "#/definitions/Service"
+      '@id':
+        type: "string"
+        description: "The entire URI of the IIIF image."
+    description: "A IIIF Image to be displayed as Thumbnail. A manifest should have\
+      \ exactly one thumbnail image, and may have more than one."
+  Manifest_logo:
+    properties:
+      service:
+        $ref: "#/definitions/Service"
+      '@id':
+        type: "string"
+        description: "The entire URI path to the Image resource."
+    description: "A small image that represents an individual or organization associated\
+      \ with the resource it is attached to. This could be the logo of the owning\
+      \ or hosting institution. Any resource type may have one or more logos associated\
+      \ with it."
+  Collection_thumbnail:
+    properties:
+      service:
+        $ref: "#/definitions/Service"
+      '@id':
+        type: "string"
+        description: "The entire URI of the IIIF image."
+    description: "A IIIF Image to be displayed as Thumbnail. A collection should have\
+      \ exactly one thumbnail image, and may have more than one."
+  Collection_members:
+    required:
+    - "@id"
+    - "@type"
+    - "label"
+    properties:
+      viewingHint:
+        type: "string"
+        description: "If the entry is a Collection, then viewingHint must also be\
+          \ present."
+      '@type':
+        type: "string"
+        description: "sc:Collection or sc:Manifest"
+      '@id':
+        type: "string"
+        description: "The URI of the Collection or Manifest."
+      label:
+        type: "string"
+        description: "The description of the Collection or Manifest"
+parameters:
+  queryParam:
+    name: "q"
+    in: "query"
+    description: "A space separated list of search terms. The search terms may be\
+      \ either words (to search for within textual bodies) or URIs (to search identities\
+      \ of annotation body resources). The semantics of multiple, space separated\
+      \ terms is server implementation dependent."
+    required: true
+    type: "string"
+  motivationParam:
+    name: "motivation"
+    in: "query"
+    description: "A space separated list of motivation terms. If multiple motivations\
+      \ are supplied, an annotation matches the search if any of the motivations are\
+      \ present. [sc:painting, non-painting, oa:commenting, oa:describing, oa:tagging,\
+      \ oa:linking]."
+    required: false
+    type: "string"
+  dateParam:
+    name: "date"
+    in: "query"
+    description: "A space separated list of date ranges. An annotation matches if\
+      \ the date on which it was created falls within any of the supplied date ranges.\
+      \ The dates must be supplied in the ISO8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ.\
+      \ The dates must be expressed in UTC and must be given in the Z based format."
+    required: false
+    type: "string"
+    format: "date-time"
+  userParam:
+    name: "user"
+    in: "query"
+    description: "A space separated list of URIs that are the identities of users.\
+      \ If multiple users are supplied, an annotation matches the search if any of\
+      \ the users created the annotation."
+    required: false
+    type: "string"
