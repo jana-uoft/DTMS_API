@@ -1757,43 +1757,8 @@ definitions:
         description: "A list of Manifest URIs that matched the search query."
         items:
           type: "string"
-      sequences:
-        type: "array"
-        description: "A list of Sequence URIs that matched the search query."
-        items:
-          type: "string"
-      ranges:
-        type: "array"
-        description: "A list of Range URIs that matched the search query."
-        items:
-          type: "string"
-      canvases:
-        type: "array"
-        description: "A list of Canvas URIs that matched the search query."
-        items:
-          type: "string"
-      layers:
-        type: "array"
-        description: "A list of layer URIs that matched the search query."
-        items:
-          type: "string"
-      lists:
-        type: "array"
-        description: "A list of AnnotationList URIs that matched the search query."
-        items:
-          type: "string"
-      annotations:
-        type: "array"
-        description: "A list of Annotation URIs that matched the search query."
-        items:
-          type: "string"
-      images:
-        type: "array"
-        description: "A list of Image URIs that matched the search query."
-        items:
-          type: "string"
-    description: "GloabSearch is used to display all matching resources of a query\
-      \ search parameter. "
+    description: "GloabSearch is used to display all matching words in the metadata\
+      \ fields of the resources."
   Resource_thumbnail:
     properties:
       service:
