@@ -1032,68 +1032,6 @@ definitions:
         type: "string"
       '@language':
         type: "string"
-  Profile:
-    required:
-    - "@context"
-    - "@id"
-    - "@type"
-    properties:
-      '@context':
-        type: "string"
-        description: "The string “http://iiif.io/api/image/2/context.json”. This should\
-          \ be included only if the profile’s URI is dereferenced."
-        default: "http://iiif.io/api/image/2/context.json"
-      '@id':
-        type: "string"
-        description: "The URI of the profile."
-      '@type':
-        type: "string"
-        description: "The type of the object. If present, the value must be the string\
-          \ 'iiif:ImageProfile'"
-        default: "iiif:ImageProfile"
-      formats:
-        type: "array"
-        description: "The set of image format parameter values available for the image.\
-          \ If not specified then clients should assume only formats declared in the\
-          \ compliance level document. (eg): 'gif', 'pdf'"
-        items:
-          type: "string"
-      maxArea:
-        type: "integer"
-        description: "The maximum area in pixels supported for this image. Requests\
-          \ for images sizes with width*height greater than this may not be supported."
-      maxHeight:
-        type: "integer"
-        description: "The maximum height in pixels supported for this image. Requests\
-          \ for images sizes with height greater than this may not be supported. If\
-          \ maxWidth is specified and maxHeight is not, then clients should infer\
-          \ that maxHeight = maxWidth."
-      maxWidth:
-        type: "integer"
-        description: "The maximum width in pixels supported for this image. Requests\
-          \ for images sizes with width greater than this may not be supported. must\
-          \ be specified if maxHeight is specified."
-      qualities:
-        type: "array"
-        description: "The set of image quality parameter values available for the\
-          \ image. If not specified then clients should assume only qualities declared\
-          \ in the compliance level document. (eg): 'color', 'gray'"
-        items:
-          type: "string"
-      supports:
-        type: "array"
-        description: "The set of features supported for the image. If not specified\
-          \ then clients should assume only features declared in the compliance level\
-          \ document."
-        items:
-          type: "string"
-          description: "baseUriRedirect, canonicalLinkHeader, cors, profileLinkHeader,\
-            \ etc"
-    description: "In order to specify additional features that are supported for the\
-      \ image, a profile object may be added to the profile list. Objects in the profile\
-      \ list have the following properties. The @context, @id and @type properties\
-      \ are required when the profile is dereferenced from a URI, but should not be\
-      \ included in the image information response."
   Logo:
     properties:
       '@id':
