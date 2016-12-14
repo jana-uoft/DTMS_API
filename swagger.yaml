@@ -782,6 +782,26 @@ paths:
           description: "Success"
           schema:
             $ref: "#/definitions/AnnotationList"
+  /search:
+    get:
+      tags:
+      - "11. SearchGlobal"
+      summary: "searches everything that matches the query"
+      description: "Searche everything that matches the given Query."
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "A space separated list of search terms. The search terms may\
+          \ be either words (to search for within textual bodies) or URIs (to search\
+          \ identities of annotation body resources). The semantics of multiple, space\
+          \ separated terms is server implementation dependent."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/GlobalSearch"
   /sequence:
     post:
       tags:
@@ -1725,6 +1745,55 @@ definitions:
       \ physical objects are part of. The collections may include both other collections\
       \ and manifests, in order to form a hierarchy of objects with manifests at the\
       \ leaf nodes of the tree."
+  GlobalSearch:
+    properties:
+      collections:
+        type: "array"
+        description: "A list of Collection URIs that matched the search query."
+        items:
+          type: "string"
+      manifests:
+        type: "array"
+        description: "A list of Manifest URIs that matched the search query."
+        items:
+          type: "string"
+      sequences:
+        type: "array"
+        description: "A list of Sequence URIs that matched the search query."
+        items:
+          type: "string"
+      ranges:
+        type: "array"
+        description: "A list of Range URIs that matched the search query."
+        items:
+          type: "string"
+      canvases:
+        type: "array"
+        description: "A list of Canvas URIs that matched the search query."
+        items:
+          type: "string"
+      layers:
+        type: "array"
+        description: "A list of layer URIs that matched the search query."
+        items:
+          type: "string"
+      lists:
+        type: "array"
+        description: "A list of AnnotationList URIs that matched the search query."
+        items:
+          type: "string"
+      annotations:
+        type: "array"
+        description: "A list of Annotation URIs that matched the search query."
+        items:
+          type: "string"
+      images:
+        type: "array"
+        description: "A list of Image URIs that matched the search query."
+        items:
+          type: "string"
+    description: "GloabSearch is used to display all matching resources of a query\
+      \ search parameter. "
   Resource_thumbnail:
     properties:
       service:
