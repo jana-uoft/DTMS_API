@@ -351,7 +351,7 @@ paths:
           schema:
             type: "file"
             description: "The IIIF Image"
-  /layer/annotation:
+  /layer/annotation/search:
     get:
       tags:
       - "9. SearchAnnotations"
@@ -484,7 +484,7 @@ paths:
           description: "Success"
           schema:
             $ref: "#/definitions/Manifest"
-  /manifest/annotation:
+  /manifest/annotation/search:
     get:
       tags:
       - "9. SearchAnnotations"
@@ -599,7 +599,7 @@ paths:
           description: "Success"
           schema:
             $ref: "#/definitions/Range"
-  /range/annotation:
+  /range/annotation/search:
     get:
       tags:
       - "9. SearchAnnotations"
@@ -714,7 +714,7 @@ paths:
           description: "Success"
           schema:
             $ref: "#/definitions/Sequence"
-  /sequence/annotation:
+  /sequence/annotation/search:
     get:
       tags:
       - "9. SearchAnnotations"
