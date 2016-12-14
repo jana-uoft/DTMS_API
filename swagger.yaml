@@ -786,8 +786,9 @@ paths:
     get:
       tags:
       - "11. SearchGlobal"
-      summary: "searches everything that matches the query"
-      description: "Searche everything that matches the given Query."
+      summary: "searches for metadata that matches the query"
+      description: "Searche Collections and Manifests with metadata that matches the\
+        \ given Query."
       parameters:
       - name: "q"
         in: "query"
