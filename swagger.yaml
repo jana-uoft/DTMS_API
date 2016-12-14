@@ -299,7 +299,7 @@ paths:
   /image/{image_UUID}/{region}/{size}/{rotation}/{quality}.{format}:
     get:
       tags:
-      - "1. Image"
+      - "01. Image"
       summary: "loads a IIIF image file"
       description: "The requested image content is first extracted as a region of\
         \ the complete image, then scaled to the requested size, mirrored and/or rotated,\
@@ -369,55 +369,6 @@ paths:
           description: "Success"
           schema:
             $ref: "#/definitions/Layer"
-  /layer/annotation/{layer_UUID}/search:
-    get:
-      tags:
-      - "10. SearchAnnotations"
-      summary: "searches Annotations in a Layer"
-      description: "Search Annotations in a Layer."
-      parameters:
-      - name: "layer_UUID"
-        in: "path"
-        description: "Unique URI of the Layer"
-        required: true
-        type: "string"
-      - name: "q"
-        in: "query"
-        description: "A space separated list of search terms. The search terms may\
-          \ be either words (to search for within textual bodies) or URIs (to search\
-          \ identities of annotation body resources). The semantics of multiple, space\
-          \ separated terms is server implementation dependent."
-        required: true
-        type: "string"
-      - name: "motivation"
-        in: "query"
-        description: "A space separated list of motivation terms. If multiple motivations\
-          \ are supplied, an annotation matches the search if any of the motivations\
-          \ are  present. [sc:painting, non-painting, oa:commenting, oa:describing,\
-          \ oa:tagging, oa:linking]."
-        required: false
-        type: "string"
-      - name: "date"
-        in: "query"
-        description: "A space separated list of date ranges. An annotation matches\
-          \ if the date on which it was created falls within any of the supplied date\
-          \ ranges. The dates must be supplied in the ISO8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ.\
-          \ The dates must be expressed in UTC and must be given in the Z based format."
-        required: false
-        type: "string"
-        format: "date-time"
-      - name: "user"
-        in: "query"
-        description: "A space separated list of URIs that are the identities of users.\
-          \ If multiple users are supplied, an annotation matches the search if any\
-          \ of the users created the annotation."
-        required: false
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/AnnotationList"
   /layer/{layer_UUID}:
     get:
       tags:
@@ -471,6 +422,55 @@ paths:
       responses:
         200:
           description: "Successfully Removed"
+  /layer/{layer_UUID}/annotation/search:
+    get:
+      tags:
+      - "10. SearchAnnotations"
+      summary: "searches Annotations in a Layer"
+      description: "Search Annotations in a Layer."
+      parameters:
+      - name: "layer_UUID"
+        in: "path"
+        description: "Unique URI of the Layer"
+        required: true
+        type: "string"
+      - name: "q"
+        in: "query"
+        description: "A space separated list of search terms. The search terms may\
+          \ be either words (to search for within textual bodies) or URIs (to search\
+          \ identities of annotation body resources). The semantics of multiple, space\
+          \ separated terms is server implementation dependent."
+        required: true
+        type: "string"
+      - name: "motivation"
+        in: "query"
+        description: "A space separated list of motivation terms. If multiple motivations\
+          \ are supplied, an annotation matches the search if any of the motivations\
+          \ are  present. [sc:painting, non-painting, oa:commenting, oa:describing,\
+          \ oa:tagging, oa:linking]."
+        required: false
+        type: "string"
+      - name: "date"
+        in: "query"
+        description: "A space separated list of date ranges. An annotation matches\
+          \ if the date on which it was created falls within any of the supplied date\
+          \ ranges. The dates must be supplied in the ISO8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ.\
+          \ The dates must be expressed in UTC and must be given in the Z based format."
+        required: false
+        type: "string"
+        format: "date-time"
+      - name: "user"
+        in: "query"
+        description: "A space separated list of URIs that are the identities of users.\
+          \ If multiple users are supplied, an annotation matches the search if any\
+          \ of the users created the annotation."
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/AnnotationList"
   /list:
     post:
       tags:
@@ -680,55 +680,6 @@ paths:
           description: "Success"
           schema:
             $ref: "#/definitions/Range"
-  /range/annotation/{range_UUID}/search:
-    get:
-      tags:
-      - "10. SearchAnnotations"
-      summary: "searches Annotations in a Range"
-      description: "Search Annotations in a Range."
-      parameters:
-      - name: "range_UUID"
-        in: "path"
-        description: "Unique URI of the Range"
-        required: true
-        type: "string"
-      - name: "q"
-        in: "query"
-        description: "A space separated list of search terms. The search terms may\
-          \ be either words (to search for within textual bodies) or URIs (to search\
-          \ identities of annotation body resources). The semantics of multiple, space\
-          \ separated terms is server implementation dependent."
-        required: true
-        type: "string"
-      - name: "motivation"
-        in: "query"
-        description: "A space separated list of motivation terms. If multiple motivations\
-          \ are supplied, an annotation matches the search if any of the motivations\
-          \ are  present. [sc:painting, non-painting, oa:commenting, oa:describing,\
-          \ oa:tagging, oa:linking]."
-        required: false
-        type: "string"
-      - name: "date"
-        in: "query"
-        description: "A space separated list of date ranges. An annotation matches\
-          \ if the date on which it was created falls within any of the supplied date\
-          \ ranges. The dates must be supplied in the ISO8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ.\
-          \ The dates must be expressed in UTC and must be given in the Z based format."
-        required: false
-        type: "string"
-        format: "date-time"
-      - name: "user"
-        in: "query"
-        description: "A space separated list of URIs that are the identities of users.\
-          \ If multiple users are supplied, an annotation matches the search if any\
-          \ of the users created the annotation."
-        required: false
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/AnnotationList"
   /range/{range_UUID}:
     get:
       tags:
@@ -782,34 +733,16 @@ paths:
       responses:
         200:
           description: "Successfully Removed"
-  /sequence:
-    post:
-      tags:
-      - "09. Sequence"
-      summary: "uploads information about a Sequence"
-      description: "Add a new Sequence."
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Sequence object. (info.JSON)"
-        required: true
-        schema:
-          $ref: "#/definitions/Sequence"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/Sequence"
-  /sequence/annotation/{annotation_UUID}/search:
+  /range/{range_UUID}/annotation/search:
     get:
       tags:
       - "10. SearchAnnotations"
-      summary: "searches Annotations in a Sequence"
-      description: "Search Annotations in a Sequence."
+      summary: "searches Annotations in a Range"
+      description: "Search Annotations in a Range."
       parameters:
-      - name: "annotation_UUID"
+      - name: "range_UUID"
         in: "path"
-        description: "Unique URI of the Annotation"
+        description: "Unique URI of the Range"
         required: true
         type: "string"
       - name: "q"
@@ -849,6 +782,24 @@ paths:
           description: "Success"
           schema:
             $ref: "#/definitions/AnnotationList"
+  /sequence:
+    post:
+      tags:
+      - "09. Sequence"
+      summary: "uploads information about a Sequence"
+      description: "Add a new Sequence."
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Sequence object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Sequence"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Sequence"
   /sequence/{sequence_UUID}:
     get:
       tags:
@@ -902,6 +853,55 @@ paths:
       responses:
         200:
           description: "Successfully Removed"
+  /sequence/{sequence_UUID}/annotation/search:
+    get:
+      tags:
+      - "10. SearchAnnotations"
+      summary: "searches Annotations in a Sequence"
+      description: "Search Annotations in a Sequence."
+      parameters:
+      - name: "sequence_UUID"
+        in: "path"
+        description: "Unique URI of the Sequence"
+        required: true
+        type: "string"
+      - name: "q"
+        in: "query"
+        description: "A space separated list of search terms. The search terms may\
+          \ be either words (to search for within textual bodies) or URIs (to search\
+          \ identities of annotation body resources). The semantics of multiple, space\
+          \ separated terms is server implementation dependent."
+        required: true
+        type: "string"
+      - name: "motivation"
+        in: "query"
+        description: "A space separated list of motivation terms. If multiple motivations\
+          \ are supplied, an annotation matches the search if any of the motivations\
+          \ are  present. [sc:painting, non-painting, oa:commenting, oa:describing,\
+          \ oa:tagging, oa:linking]."
+        required: false
+        type: "string"
+      - name: "date"
+        in: "query"
+        description: "A space separated list of date ranges. An annotation matches\
+          \ if the date on which it was created falls within any of the supplied date\
+          \ ranges. The dates must be supplied in the ISO8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ.\
+          \ The dates must be expressed in UTC and must be given in the Z based format."
+        required: false
+        type: "string"
+        format: "date-time"
+      - name: "user"
+        in: "query"
+        description: "A space separated list of URIs that are the identities of users.\
+          \ If multiple users are supplied, an annotation matches the search if any\
+          \ of the users created the annotation."
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/AnnotationList"
 definitions:
   Image:
     required:
