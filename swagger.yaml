@@ -37,7 +37,7 @@ paths:
       parameters:
       - name: "annotation_UUID"
         in: "path"
-        description: "Unique URI of the Annotation."
+        description: "Unique URI of the Annotation"
         required: true
         type: "string"
       responses:
@@ -75,7 +75,7 @@ paths:
       parameters:
       - name: "annotation_UUID"
         in: "path"
-        description: "Unique URI of the Annotation."
+        description: "Unique URI of the Annotation"
         required: true
         type: "string"
       responses:
@@ -102,7 +102,7 @@ paths:
   /canvas/{canvas_UUID}:
     get:
       tags:
-      - "4. Canvas"
+      - "5. Canvas"
       summary: "loads information about a Canvas"
       description: "Get information about a specific Canvas."
       parameters:
@@ -118,13 +118,13 @@ paths:
             $ref: "#/definitions/Canvas"
     put:
       tags:
-      - "4. Canvas"
+      - "5. Canvas"
       summary: "modifies information about a Canvas"
       description: "Update the information about a specific Canvas."
       parameters:
       - name: "canvas_UUID"
         in: "path"
-        description: "Unique URI of the Canvas."
+        description: "Unique URI of the Canvas"
         required: true
         type: "string"
       - in: "body"
@@ -140,13 +140,13 @@ paths:
             $ref: "#/definitions/Canvas"
     delete:
       tags:
-      - "4. Canvas"
+      - "5. Canvas"
       summary: "removes information about a Canvas"
       description: "Remove a Canvas."
       parameters:
       - name: "canvas_UUID"
         in: "path"
-        description: "Unique URI of the Canvas."
+        description: "Unique URI of the Canvas"
         required: true
         type: "string"
       responses:
@@ -155,7 +155,7 @@ paths:
   /collection:
     post:
       tags:
-      - "7. Collection"
+      - "8. Collection"
       summary: "uploads information about a Collection"
       description: "Add a new Collection."
       parameters:
@@ -173,7 +173,7 @@ paths:
   /collection/{collection_UUID}:
     get:
       tags:
-      - "7. Collection"
+      - "8. Collection"
       summary: "loads information about a Collection"
       description: "Get information about a specific Collection."
       parameters:
@@ -189,13 +189,13 @@ paths:
             $ref: "#/definitions/Collection"
     put:
       tags:
-      - "7. Collection"
+      - "8. Collection"
       summary: "modifies information about a Collection"
       description: "Update the information about a specific Collection."
       parameters:
       - name: "collection_UUID"
         in: "path"
-        description: "Unique URI of the Collection."
+        description: "Unique URI of the Collection"
         required: true
         type: "string"
       - in: "body"
@@ -211,13 +211,13 @@ paths:
             $ref: "#/definitions/Collection"
     delete:
       tags:
-      - "7. Collection"
+      - "8. Collection"
       summary: "removes information about a Collection"
       description: "Remove a Collection."
       parameters:
       - name: "collection_UUID"
         in: "path"
-        description: "Unique URI of the Collection."
+        description: "Unique URI of the Collection"
         required: true
         type: "string"
       responses:
@@ -251,7 +251,7 @@ paths:
       parameters:
       - name: "image_UUID"
         in: "path"
-        description: "Unique URI of the Image"
+        description: "Unique URI of the Image file"
         required: true
         type: "string"
       responses:
@@ -267,7 +267,7 @@ paths:
       parameters:
       - name: "image_UUID"
         in: "path"
-        description: "Unique URI of the Image"
+        description: "Unique URI of the Image file"
         required: true
         type: "string"
       - in: "body"
@@ -290,7 +290,7 @@ paths:
       parameters:
       - name: "image_UUID"
         in: "path"
-        description: "Unique URI of the Image"
+        description: "Unique URI of the Image file"
         required: true
         type: "string"
       responses:
@@ -308,7 +308,7 @@ paths:
       parameters:
       - name: "image_UUID"
         in: "path"
-        description: "Unique URI of the Image"
+        description: "Unique URI of the Image file"
         required: true
         type: "string"
       - name: "region"
@@ -351,13 +351,36 @@ paths:
           schema:
             type: "file"
             description: "The IIIF Image"
-  /layer/annotation/search:
+  /layer:
+    post:
+      tags:
+      - "4. Layer"
+      summary: "uploads information about a Layer"
+      description: "Add a new Layer."
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Layer object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Layer"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Layer"
+  /layer/annotation/{layer_UUID}/search:
     get:
       tags:
-      - "9. SearchAnnotations"
+      - "10. SearchAnnotations"
       summary: "searches Annotations in a Layer"
       description: "Search Annotations in a Layer."
       parameters:
+      - name: "layer_UUID"
+        in: "path"
+        description: "Unique URI of the Layer"
+        required: true
+        type: "string"
       - name: "q"
         in: "query"
         description: "A space separated list of search terms. The search terms may\
@@ -395,6 +418,59 @@ paths:
           description: "Success"
           schema:
             $ref: "#/definitions/AnnotationList"
+  /layer/{layer_UUID}:
+    get:
+      tags:
+      - "4. Layer"
+      summary: "loads information about a Layer"
+      description: "Get information about a specific Layer."
+      parameters:
+      - name: "layer_UUID"
+        in: "path"
+        description: "Unique URI of the Layer"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Layer"
+    put:
+      tags:
+      - "4. Layer"
+      summary: "modifies information about a Layer"
+      description: "Update the information about a specific Layer."
+      parameters:
+      - name: "layer_UUID"
+        in: "path"
+        description: "Unique URI of the Layer"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Layer object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Layer"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Layer"
+    delete:
+      tags:
+      - "4. Layer"
+      summary: "removes information about a Layer"
+      description: "Remove a Layer."
+      parameters:
+      - name: "layer_UUID"
+        in: "path"
+        description: "Unique URI of the Layer"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successfully Removed"
   /list:
     post:
       tags:
@@ -438,7 +514,7 @@ paths:
       parameters:
       - name: "list_UUID"
         in: "path"
-        description: "Unique URI of the Annotation List."
+        description: "Unique URI of the Annotation List"
         required: true
         type: "string"
       - in: "body"
@@ -460,7 +536,7 @@ paths:
       parameters:
       - name: "list_UUID"
         in: "path"
-        description: "Unique URI of the Annotation List."
+        description: "Unique URI of the Annotation List"
         required: true
         type: "string"
       responses:
@@ -469,7 +545,7 @@ paths:
   /manifest:
     post:
       tags:
-      - "6. Manifest"
+      - "7. Manifest"
       summary: "uploads information about a Manifest"
       description: "Add a new Manifest."
       parameters:
@@ -484,13 +560,71 @@ paths:
           description: "Success"
           schema:
             $ref: "#/definitions/Manifest"
-  /manifest/annotation/search:
+  /manifest/{manifest_UUID}:
     get:
       tags:
-      - "9. SearchAnnotations"
+      - "7. Manifest"
+      summary: "loads information about a Manifest"
+      description: "Get information about a specific Manifest."
+      parameters:
+      - name: "manifest_UUID"
+        in: "path"
+        description: "Unique URI of the Manifest"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Manifest"
+    put:
+      tags:
+      - "7. Manifest"
+      summary: "modifies information about a Manifest"
+      description: "Update the information about a specific Manifest."
+      parameters:
+      - name: "manifest_UUID"
+        in: "path"
+        description: "Unique URI of the Manifest"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Manifest object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Manifest"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Manifest"
+    delete:
+      tags:
+      - "7. Manifest"
+      summary: "removes information about a Manifest"
+      description: "Remove a Manifest."
+      parameters:
+      - name: "manifest_UUID"
+        in: "path"
+        description: "Unique URI of the Manifest"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successfully Removed"
+  /manifest/{manifest_UUID}/annotation/search:
+    get:
+      tags:
+      - "10. SearchAnnotations"
       summary: "searches Annotations in a Manifest"
       description: "Search Annotations in a Manifest."
       parameters:
+      - name: "manifest_UUID"
+        in: "path"
+        description: "Unique URI of the Manifest"
+        required: true
+        type: "string"
       - name: "q"
         in: "query"
         description: "A space separated list of search terms. The search terms may\
@@ -528,63 +662,10 @@ paths:
           description: "Success"
           schema:
             $ref: "#/definitions/AnnotationList"
-  /manifest/{manifest_UUID}:
-    get:
-      tags:
-      - "6. Manifest"
-      summary: "loads information about a Manifest"
-      description: "Get information about a specific Manifest."
-      parameters:
-      - name: "manifest_UUID"
-        in: "path"
-        description: "Unique URI of the Manifest"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/Manifest"
-    put:
-      tags:
-      - "6. Manifest"
-      summary: "modifies information about a Manifest"
-      description: "Update the information about a specific Manifest."
-      parameters:
-      - name: "manifest_UUID"
-        in: "path"
-        description: "Unique URI of the Manifest."
-        required: true
-        type: "string"
-      - in: "body"
-        name: "body"
-        description: "Manifest object. (info.JSON)"
-        required: true
-        schema:
-          $ref: "#/definitions/Manifest"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/Manifest"
-    delete:
-      tags:
-      - "6. Manifest"
-      summary: "removes information about a Manifest"
-      description: "Remove a Manifest."
-      parameters:
-      - name: "manifest_UUID"
-        in: "path"
-        description: "Unique URI of the Manifest."
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Successfully Removed"
   /range:
     post:
       tags:
-      - "5. Range"
+      - "6. Range"
       summary: "uploads information about a Range"
       description: "Add a new Range."
       parameters:
@@ -599,13 +680,18 @@ paths:
           description: "Success"
           schema:
             $ref: "#/definitions/Range"
-  /range/annotation/search:
+  /range/annotation/{range_UUID}/search:
     get:
       tags:
-      - "9. SearchAnnotations"
+      - "10. SearchAnnotations"
       summary: "searches Annotations in a Range"
       description: "Search Annotations in a Range."
       parameters:
+      - name: "range_UUID"
+        in: "path"
+        description: "Unique URI of the Range"
+        required: true
+        type: "string"
       - name: "q"
         in: "query"
         description: "A space separated list of search terms. The search terms may\
@@ -646,7 +732,7 @@ paths:
   /range/{range_UUID}:
     get:
       tags:
-      - "5. Range"
+      - "6. Range"
       summary: "loads information about a Range"
       description: "Get information about a specific Range."
       parameters:
@@ -662,13 +748,13 @@ paths:
             $ref: "#/definitions/Range"
     put:
       tags:
-      - "5. Range"
+      - "6. Range"
       summary: "modifies information about a Range"
       description: "Update the information about a specific Range."
       parameters:
       - name: "range_UUID"
         in: "path"
-        description: "Unique URI of the Range."
+        description: "Unique URI of the Range"
         required: true
         type: "string"
       - in: "body"
@@ -684,13 +770,13 @@ paths:
             $ref: "#/definitions/Range"
     delete:
       tags:
-      - "5. Range"
+      - "6. Range"
       summary: "removes information about a Range"
       description: "Remove a Range."
       parameters:
       - name: "range_UUID"
         in: "path"
-        description: "Unique URI of the Range."
+        description: "Unique URI of the Range"
         required: true
         type: "string"
       responses:
@@ -699,7 +785,7 @@ paths:
   /sequence:
     post:
       tags:
-      - "8. Sequence"
+      - "9. Sequence"
       summary: "uploads information about a Sequence"
       description: "Add a new Sequence."
       parameters:
@@ -714,13 +800,18 @@ paths:
           description: "Success"
           schema:
             $ref: "#/definitions/Sequence"
-  /sequence/annotation/search:
+  /sequence/annotation/{annotation_UUID}/search:
     get:
       tags:
-      - "9. SearchAnnotations"
+      - "10. SearchAnnotations"
       summary: "searches Annotations in a Sequence"
       description: "Search Annotations in a Sequence."
       parameters:
+      - name: "annotation_UUID"
+        in: "path"
+        description: "Unique URI of the Annotation"
+        required: true
+        type: "string"
       - name: "q"
         in: "query"
         description: "A space separated list of search terms. The search terms may\
@@ -761,7 +852,7 @@ paths:
   /sequence/{sequence_UUID}:
     get:
       tags:
-      - "8. Sequence"
+      - "9. Sequence"
       summary: "loads information about a Sequence"
       description: "Get information about a specific Sequence."
       parameters:
@@ -777,13 +868,13 @@ paths:
             $ref: "#/definitions/Sequence"
     put:
       tags:
-      - "8. Sequence"
+      - "9. Sequence"
       summary: "modifies information about a Sequence"
       description: "Update the information about a specific Sequence."
       parameters:
       - name: "sequence_UUID"
         in: "path"
-        description: "Unique URI of the Sequence."
+        description: "Unique URI of the Sequence"
         required: true
         type: "string"
       - in: "body"
@@ -799,13 +890,13 @@ paths:
             $ref: "#/definitions/Sequence"
     delete:
       tags:
-      - "8. Sequence"
+      - "9. Sequence"
       summary: "removes information about a Sequence"
       description: "Remove a Sequence."
       parameters:
       - name: "sequence_UUID"
         in: "path"
-        description: "Unique URI of the Sequence."
+        description: "Unique URI of the Sequence"
         required: true
         type: "string"
       responses:
@@ -1146,7 +1237,7 @@ definitions:
       thumbnail:
         $ref: "#/definitions/Resource_thumbnail"
     description: "Content resources such as images or texts that are associated with\
-      \ a canvas."
+      \ an annotation."
   Annotation:
     required:
     - "@type"
@@ -1802,6 +1893,60 @@ definitions:
         type: "string"
         description: "The description of the Collection or Manifest"
 parameters:
+  image_UUID:
+    name: "image_UUID"
+    in: "path"
+    description: "Unique URI of the Image file"
+    required: true
+    type: "string"
+  annotation_UUID:
+    name: "annotation_UUID"
+    in: "path"
+    description: "Unique URI of the Annotation"
+    required: true
+    type: "string"
+  list_UUID:
+    name: "list_UUID"
+    in: "path"
+    description: "Unique URI of the Annotation List"
+    required: true
+    type: "string"
+  layer_UUID:
+    name: "layer_UUID"
+    in: "path"
+    description: "Unique URI of the Layer"
+    required: true
+    type: "string"
+  canvas_UUID:
+    name: "canvas_UUID"
+    in: "path"
+    description: "Unique URI of the Canvas"
+    required: true
+    type: "string"
+  range_UUID:
+    name: "range_UUID"
+    in: "path"
+    description: "Unique URI of the Range"
+    required: true
+    type: "string"
+  manifest_UUID:
+    name: "manifest_UUID"
+    in: "path"
+    description: "Unique URI of the Manifest"
+    required: true
+    type: "string"
+  collection_UUID:
+    name: "collection_UUID"
+    in: "path"
+    description: "Unique URI of the Collection"
+    required: true
+    type: "string"
+  sequence_UUID:
+    name: "sequence_UUID"
+    in: "path"
+    description: "Unique URI of the Sequence"
+    required: true
+    type: "string"
   queryParam:
     name: "q"
     in: "query"
