@@ -13,7 +13,7 @@ paths:
   /annotation:
     post:
       tags:
-      - "2. Annotation"
+      - "02. Annotation"
       summary: "uploads information about an Annotation"
       description: "Add a new Annotation."
       parameters:
@@ -31,7 +31,7 @@ paths:
   /annotation/{annotation_UUID}:
     get:
       tags:
-      - "2. Annotation"
+      - "02. Annotation"
       summary: "loads information about an Annotation"
       description: "Get information about a specific Annotation."
       parameters:
@@ -47,7 +47,7 @@ paths:
             $ref: "#/definitions/Annotation"
     put:
       tags:
-      - "2. Annotation"
+      - "02. Annotation"
       summary: "modifies information about an Annotation"
       description: "Update the information about a specific Annotation."
       parameters:
@@ -69,7 +69,7 @@ paths:
             $ref: "#/definitions/Annotation"
     delete:
       tags:
-      - "2. Annotation"
+      - "02. Annotation"
       summary: "removes information about an Annotation"
       description: "Remove an Annotation."
       parameters:
@@ -84,7 +84,7 @@ paths:
   /canvas:
     post:
       tags:
-      - "4. Canvas"
+      - "05. Canvas"
       summary: "uploads information about a Canvas"
       description: "Add a new Canvas."
       parameters:
@@ -102,7 +102,7 @@ paths:
   /canvas/{canvas_UUID}:
     get:
       tags:
-      - "5. Canvas"
+      - "05. Canvas"
       summary: "loads information about a Canvas"
       description: "Get information about a specific Canvas."
       parameters:
@@ -118,7 +118,7 @@ paths:
             $ref: "#/definitions/Canvas"
     put:
       tags:
-      - "5. Canvas"
+      - "05. Canvas"
       summary: "modifies information about a Canvas"
       description: "Update the information about a specific Canvas."
       parameters:
@@ -140,7 +140,7 @@ paths:
             $ref: "#/definitions/Canvas"
     delete:
       tags:
-      - "5. Canvas"
+      - "05. Canvas"
       summary: "removes information about a Canvas"
       description: "Remove a Canvas."
       parameters:
@@ -155,7 +155,7 @@ paths:
   /collection:
     post:
       tags:
-      - "8. Collection"
+      - "08. Collection"
       summary: "uploads information about a Collection"
       description: "Add a new Collection."
       parameters:
@@ -173,7 +173,7 @@ paths:
   /collection/{collection_UUID}:
     get:
       tags:
-      - "8. Collection"
+      - "08. Collection"
       summary: "loads information about a Collection"
       description: "Get information about a specific Collection."
       parameters:
@@ -189,7 +189,7 @@ paths:
             $ref: "#/definitions/Collection"
     put:
       tags:
-      - "8. Collection"
+      - "08. Collection"
       summary: "modifies information about a Collection"
       description: "Update the information about a specific Collection."
       parameters:
@@ -211,7 +211,7 @@ paths:
             $ref: "#/definitions/Collection"
     delete:
       tags:
-      - "8. Collection"
+      - "08. Collection"
       summary: "removes information about a Collection"
       description: "Remove a Collection."
       parameters:
@@ -226,7 +226,7 @@ paths:
   /image:
     post:
       tags:
-      - "1. Image"
+      - "01. Image"
       summary: "uploads infromation about a IIIF image file"
       description: "Add a new IIIF Image information object. (info.JSON)"
       parameters:
@@ -245,7 +245,7 @@ paths:
   /image/{image_UUID}:
     get:
       tags:
-      - "1. Image"
+      - "01. Image"
       summary: "loads information about an IIIF image file"
       description: "Get information about a specific Image."
       parameters:
@@ -261,7 +261,7 @@ paths:
             $ref: "#/definitions/Image"
     put:
       tags:
-      - "1. Image"
+      - "01. Image"
       summary: "modifies information about an IIIF image file"
       description: "Update the information about a specific Image."
       parameters:
@@ -284,7 +284,7 @@ paths:
             $ref: "#/definitions/Image"
     delete:
       tags:
-      - "1. Image"
+      - "01. Image"
       summary: "removes information about an IIIF image file"
       description: "Remove a IIIF Image information object. Not the actual Image file"
       parameters:
@@ -354,7 +354,7 @@ paths:
   /layer:
     post:
       tags:
-      - "4. Layer"
+      - "04. Layer"
       summary: "uploads information about a Layer"
       description: "Add a new Layer."
       parameters:
@@ -421,7 +421,7 @@ paths:
   /layer/{layer_UUID}:
     get:
       tags:
-      - "4. Layer"
+      - "04. Layer"
       summary: "loads information about a Layer"
       description: "Get information about a specific Layer."
       parameters:
@@ -437,7 +437,7 @@ paths:
             $ref: "#/definitions/Layer"
     put:
       tags:
-      - "4. Layer"
+      - "04. Layer"
       summary: "modifies information about a Layer"
       description: "Update the information about a specific Layer."
       parameters:
@@ -459,7 +459,7 @@ paths:
             $ref: "#/definitions/Layer"
     delete:
       tags:
-      - "4. Layer"
+      - "04. Layer"
       summary: "removes information about a Layer"
       description: "Remove a Layer."
       parameters:
@@ -474,7 +474,7 @@ paths:
   /list:
     post:
       tags:
-      - "3. AnnotationList"
+      - "03. AnnotationList"
       summary: "uploads information about an Annotation List"
       description: "Add a new Annotation List."
       parameters:
@@ -492,7 +492,7 @@ paths:
   /list/{list_UUID}:
     get:
       tags:
-      - "3. AnnotationList"
+      - "03. AnnotationList"
       summary: "loads information about an Annotation List"
       description: "Get information about a specific Annotation List."
       parameters:
@@ -508,7 +508,7 @@ paths:
             $ref: "#/definitions/AnnotationList"
     put:
       tags:
-      - "3. AnnotationList"
+      - "03. AnnotationList"
       summary: "modifies information about an Annotation List"
       description: "Update the information about a specific Annotation List."
       parameters:
@@ -530,7 +530,7 @@ paths:
             $ref: "#/definitions/AnnotationList"
     delete:
       tags:
-      - "3. AnnotationList"
+      - "03. AnnotationList"
       summary: "removes information about an Annotation List"
       description: "Remove an Annotation List."
       parameters:
@@ -545,7 +545,7 @@ paths:
   /manifest:
     post:
       tags:
-      - "7. Manifest"
+      - "07. Manifest"
       summary: "uploads information about a Manifest"
       description: "Add a new Manifest."
       parameters:
@@ -563,7 +563,7 @@ paths:
   /manifest/{manifest_UUID}:
     get:
       tags:
-      - "7. Manifest"
+      - "07. Manifest"
       summary: "loads information about a Manifest"
       description: "Get information about a specific Manifest."
       parameters:
@@ -579,7 +579,7 @@ paths:
             $ref: "#/definitions/Manifest"
     put:
       tags:
-      - "7. Manifest"
+      - "07. Manifest"
       summary: "modifies information about a Manifest"
       description: "Update the information about a specific Manifest."
       parameters:
@@ -601,7 +601,7 @@ paths:
             $ref: "#/definitions/Manifest"
     delete:
       tags:
-      - "7. Manifest"
+      - "07. Manifest"
       summary: "removes information about a Manifest"
       description: "Remove a Manifest."
       parameters:
@@ -665,7 +665,7 @@ paths:
   /range:
     post:
       tags:
-      - "6. Range"
+      - "06. Range"
       summary: "uploads information about a Range"
       description: "Add a new Range."
       parameters:
@@ -732,7 +732,7 @@ paths:
   /range/{range_UUID}:
     get:
       tags:
-      - "6. Range"
+      - "06. Range"
       summary: "loads information about a Range"
       description: "Get information about a specific Range."
       parameters:
@@ -748,7 +748,7 @@ paths:
             $ref: "#/definitions/Range"
     put:
       tags:
-      - "6. Range"
+      - "06. Range"
       summary: "modifies information about a Range"
       description: "Update the information about a specific Range."
       parameters:
@@ -770,7 +770,7 @@ paths:
             $ref: "#/definitions/Range"
     delete:
       tags:
-      - "6. Range"
+      - "06. Range"
       summary: "removes information about a Range"
       description: "Remove a Range."
       parameters:
@@ -785,7 +785,7 @@ paths:
   /sequence:
     post:
       tags:
-      - "9. Sequence"
+      - "09. Sequence"
       summary: "uploads information about a Sequence"
       description: "Add a new Sequence."
       parameters:
@@ -852,7 +852,7 @@ paths:
   /sequence/{sequence_UUID}:
     get:
       tags:
-      - "9. Sequence"
+      - "09. Sequence"
       summary: "loads information about a Sequence"
       description: "Get information about a specific Sequence."
       parameters:
@@ -868,7 +868,7 @@ paths:
             $ref: "#/definitions/Sequence"
     put:
       tags:
-      - "9. Sequence"
+      - "09. Sequence"
       summary: "modifies information about a Sequence"
       description: "Update the information about a specific Sequence."
       parameters:
@@ -890,7 +890,7 @@ paths:
             $ref: "#/definitions/Sequence"
     delete:
       tags:
-      - "9. Sequence"
+      - "09. Sequence"
       summary: "removes information about a Sequence"
       description: "Remove a Sequence."
       parameters:
