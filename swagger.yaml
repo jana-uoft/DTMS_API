@@ -300,7 +300,7 @@ paths:
     get:
       tags:
       - "01. Image"
-      summary: "loads a IIIF image file"
+      summary: "loads a IIIF Image file"
       description: "The requested image content is first extracted as a region of\
         \ the complete image, then scaled to the requested size, mirrored and/or rotated,\
         \ and finally transformed into the color quality and format.  This resulting\
