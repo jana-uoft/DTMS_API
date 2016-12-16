@@ -284,7 +284,7 @@ paths:
         description: "Unique URI of the Collection"
         required: true
         type: "string"
-      - name: "export"
+      - name: "format"
         in: "query"
         description: "The format of the exported file. Eg: csv, xml"
         required: true
@@ -2030,7 +2030,7 @@ parameters:
     required: false
     type: "string"
   exportParam:
-    name: "export"
+    name: "format"
     in: "query"
     description: "The format of the exported file. Eg: csv, xml"
     required: true
