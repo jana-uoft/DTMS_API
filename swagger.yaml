@@ -223,6 +223,78 @@ paths:
       responses:
         200:
           description: "Successfully Removed"
+  /collection/{collection_UUID}/annotation/search:
+    get:
+      tags:
+      - "10. SearchAnnotations"
+      summary: "searches Annotations in a Collection"
+      description: "Search Annotations in a Collection."
+      parameters:
+      - name: "collection_UUID"
+        in: "path"
+        description: "Unique URI of the Collection"
+        required: true
+        type: "string"
+      - name: "q"
+        in: "query"
+        description: "A space separated list of search terms. The search terms may\
+          \ be either words (to search for within textual bodies) or URIs (to search\
+          \ identities of annotation body resources). The semantics of multiple, space\
+          \ separated terms is server implementation dependent."
+        required: true
+        type: "string"
+      - name: "motivation"
+        in: "query"
+        description: "A space separated list of motivation terms. If multiple motivations\
+          \ are supplied, an annotation matches the search if any of the motivations\
+          \ are  present. [sc:painting, non-painting, oa:commenting, oa:describing,\
+          \ oa:tagging, oa:linking]."
+        required: false
+        type: "string"
+      - name: "date"
+        in: "query"
+        description: "A space separated list of date ranges. An annotation matches\
+          \ if the date on which it was created falls within any of the supplied date\
+          \ ranges. The dates must be supplied in the ISO8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ.\
+          \ The dates must be expressed in UTC and must be given in the Z based format."
+        required: false
+        type: "string"
+        format: "date-time"
+      - name: "user"
+        in: "query"
+        description: "A space separated list of URIs that are the identities of users.\
+          \ If multiple users are supplied, an annotation matches the search if any\
+          \ of the users created the annotation."
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/AnnotationList"
+  /collection/{collection_UUID}/export:
+    get:
+      tags:
+      - "11. Export"
+      summary: "exports a Collection"
+      description: "Export a Collection in the format specified."
+      parameters:
+      - name: "collection_UUID"
+        in: "path"
+        description: "Unique URI of the Collection"
+        required: true
+        type: "string"
+      - name: "export"
+        in: "query"
+        description: "The format of the exported file. Eg: csv, xml"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "file"
+            description: "The exported file"
   /image:
     post:
       tags:
@@ -786,8 +858,9 @@ paths:
     get:
       tags:
       - "11. SearchGlobal"
-      summary: "searches for metadata that matches the query"
-      description: "Searche Collections and Manifests with metadata that matches the\
+      summary: "searches for metadata in Manifests and Collections that matches the\
+        \ query"
+      description: "Search Collections and Manifests with metadata that matches the\
         \ given Query."
       parameters:
       - name: "q"
@@ -1955,4 +2028,10 @@ parameters:
       \ If multiple users are supplied, an annotation matches the search if any of\
       \ the users created the annotation."
     required: false
+    type: "string"
+  exportParam:
+    name: "export"
+    in: "query"
+    description: "The format of the exported file. Eg: csv, xml"
+    required: true
     type: "string"
