@@ -949,7 +949,7 @@ paths:
   /search:
     get:
       tags:
-      - "11. SearchGlobal"
+      - "11. SearchMetaData"
       summary: "searches for metadata in Manifests and Collections that matches the\
         \ query"
       description: "Search Collections and Manifests with metadata that matches the\
