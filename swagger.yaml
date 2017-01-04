@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: "This API will enable to push or pull data from a common data later\
-    \ in standard formats"
+    \ in standard formats."
   version: "0.0.1"
   title: "DTMS API Specification - Initial Draft"
 host: "virtserver.swaggerhub.com"
