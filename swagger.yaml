@@ -393,7 +393,7 @@ paths:
       - name: "size"
         in: "path"
         description: "The size parameter determines the dimensions to which the extracted\
-          \ region is to be scaled."
+          \ region is to be scaled"
         required: true
         type: "string"
         default: "full"
