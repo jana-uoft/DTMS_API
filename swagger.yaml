@@ -10,6 +10,79 @@ basePath: "/jana-dtms/DTMS_API/0.0.1"
 schemes:
 - "https"
 paths:
+  /image:
+    post:
+      tags:
+      - "01. Image"
+      summary: "uploads infromation about an IIIF image file"
+      description: "Add a new IIIF Image information object. (info.JSON)"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Image infomration object that needs to be linked to the actual\
+          \ Image. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Image"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Image"
+  /image/{image_UUID}:
+    get:
+      tags:
+      - "01. Image"
+      summary: "loads information about an IIIF image file"
+      description: "Get information about a specific Image."
+      parameters:
+      - name: "image_UUID"
+        in: "path"
+        description: "Unique URI of the Image file"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Image"
+    put:
+      tags:
+      - "01. Image"
+      summary: "modifies information about an IIIF image file"
+      description: "Update the information about a specific Image."
+      parameters:
+      - name: "image_UUID"
+        in: "path"
+        description: "Unique URI of the Image file"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Image infomration object that needs to be linked to the actual\
+          \ Image. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Image"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Image"
+    delete:
+      tags:
+      - "01. Image"
+      summary: "removes information about an IIIF image file"
+      description: "Remove a IIIF Image information object. Not the actual Image file"
+      parameters:
+      - name: "image_UUID"
+        in: "path"
+        description: "Unique URI of the Image file"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successfully Removed"
   /annotation:
     post:
       tags:
@@ -76,6 +149,148 @@ paths:
       - name: "annotation_UUID"
         in: "path"
         description: "Unique URI of the Annotation"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successfully Removed"
+  /list:
+    post:
+      tags:
+      - "03. AnnotationList"
+      summary: "uploads information about an Annotation List"
+      description: "Add a new Annotation List."
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Annotation List object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/AnnotationList"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/AnnotationList"
+  /list/{list_UUID}:
+    get:
+      tags:
+      - "03. AnnotationList"
+      summary: "loads information about an Annotation List"
+      description: "Get information about a specific Annotation List."
+      parameters:
+      - name: "list_UUID"
+        in: "path"
+        description: "Unique URI of the Annotation List"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/AnnotationList"
+    put:
+      tags:
+      - "03. AnnotationList"
+      summary: "modifies information about an Annotation List"
+      description: "Update the information about a specific Annotation List."
+      parameters:
+      - name: "list_UUID"
+        in: "path"
+        description: "Unique URI of the Annotation List"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Annotation List object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/AnnotationList"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/AnnotationList"
+    delete:
+      tags:
+      - "03. AnnotationList"
+      summary: "removes information about an Annotation List"
+      description: "Remove an Annotation List."
+      parameters:
+      - name: "list_UUID"
+        in: "path"
+        description: "Unique URI of the Annotation List"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successfully Removed"
+  /layer:
+    post:
+      tags:
+      - "04. Layer"
+      summary: "uploads information about a Layer"
+      description: "Add a new Layer."
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Layer object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Layer"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Layer"
+  /layer/{layer_UUID}:
+    get:
+      tags:
+      - "04. Layer"
+      summary: "loads information about a Layer"
+      description: "Get information about a specific Layer."
+      parameters:
+      - name: "layer_UUID"
+        in: "path"
+        description: "Unique URI of the Layer"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Layer"
+    put:
+      tags:
+      - "04. Layer"
+      summary: "modifies information about a Layer"
+      description: "Update the information about a specific Layer."
+      parameters:
+      - name: "layer_UUID"
+        in: "path"
+        description: "Unique URI of the Layer"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Layer object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Layer"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Layer"
+    delete:
+      tags:
+      - "04. Layer"
+      summary: "removes information about a Layer"
+      description: "Remove a Layer."
+      parameters:
+      - name: "layer_UUID"
+        in: "path"
+        description: "Unique URI of the Layer"
         required: true
         type: "string"
       responses:
@@ -152,657 +367,6 @@ paths:
       responses:
         200:
           description: "Successfully Removed"
-  /collection:
-    post:
-      tags:
-      - "08. Collection"
-      summary: "uploads information about a Collection"
-      description: "Add a new Collection."
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Collection object. (info.JSON)"
-        required: true
-        schema:
-          $ref: "#/definitions/Collection"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/Collection"
-  /collection/{collection_UUID}:
-    get:
-      tags:
-      - "08. Collection"
-      summary: "loads information about a Collection"
-      description: "Get information about a specific Collection."
-      parameters:
-      - name: "collection_UUID"
-        in: "path"
-        description: "Unique URI of the Collection"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/Collection"
-    put:
-      tags:
-      - "08. Collection"
-      summary: "modifies information about a Collection"
-      description: "Update the information about a specific Collection."
-      parameters:
-      - name: "collection_UUID"
-        in: "path"
-        description: "Unique URI of the Collection"
-        required: true
-        type: "string"
-      - in: "body"
-        name: "body"
-        description: "Collection object. (info.JSON)"
-        required: true
-        schema:
-          $ref: "#/definitions/Collection"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/Collection"
-    delete:
-      tags:
-      - "08. Collection"
-      summary: "removes information about a Collection"
-      description: "Remove a Collection."
-      parameters:
-      - name: "collection_UUID"
-        in: "path"
-        description: "Unique URI of the Collection"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Successfully Removed"
-  /collection/{collection_UUID}/annotation/search:
-    get:
-      tags:
-      - "10. SearchAnnotations"
-      summary: "searches Annotations in a Collection"
-      description: "Search Annotations in a Collection."
-      parameters:
-      - name: "collection_UUID"
-        in: "path"
-        description: "Unique URI of the Collection"
-        required: true
-        type: "string"
-      - name: "q"
-        in: "query"
-        description: "A space separated list of search terms. The search terms may\
-          \ be either words (to search for within textual bodies) or URIs (to search\
-          \ identities of annotation body resources). The semantics of multiple, space\
-          \ separated terms is server implementation dependent."
-        required: true
-        type: "string"
-      - name: "motivation"
-        in: "query"
-        description: "A space separated list of motivation terms. If multiple motivations\
-          \ are supplied, an annotation matches the search if any of the motivations\
-          \ are  present. [sc:painting, non-painting, oa:commenting, oa:describing,\
-          \ oa:tagging, oa:linking]."
-        required: false
-        type: "string"
-      - name: "date"
-        in: "query"
-        description: "A space separated list of date ranges. An annotation matches\
-          \ if the date on which it was created falls within any of the supplied date\
-          \ ranges. The dates must be supplied in the ISO8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ.\
-          \ The dates must be expressed in UTC and must be given in the Z based format."
-        required: false
-        type: "string"
-        format: "date-time"
-      - name: "user"
-        in: "query"
-        description: "A space separated list of URIs that are the identities of users.\
-          \ If multiple users are supplied, an annotation matches the search if any\
-          \ of the users created the annotation."
-        required: false
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/AnnotationList"
-  /collection/{collection_UUID}/export:
-    get:
-      tags:
-      - "12. Export"
-      summary: "exports a Collection"
-      description: "Export a Collection in the format specified."
-      parameters:
-      - name: "collection_UUID"
-        in: "path"
-        description: "Unique URI of the Collection"
-        required: true
-        type: "string"
-      - name: "format"
-        in: "query"
-        description: "The format of the exported file. Eg: csv, xml"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            type: "file"
-            description: "The exported file"
-  /image:
-    post:
-      tags:
-      - "01. Image"
-      summary: "uploads infromation about an IIIF image file"
-      description: "Add a new IIIF Image information object. (info.JSON)"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Image infomration object that needs to be linked to the actual\
-          \ Image. (info.JSON)"
-        required: true
-        schema:
-          $ref: "#/definitions/Image"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/Image"
-  /image/{image_UUID}:
-    get:
-      tags:
-      - "01. Image"
-      summary: "loads information about an IIIF image file"
-      description: "Get information about a specific Image."
-      parameters:
-      - name: "image_UUID"
-        in: "path"
-        description: "Unique URI of the Image file"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/Image"
-    put:
-      tags:
-      - "01. Image"
-      summary: "modifies information about an IIIF image file"
-      description: "Update the information about a specific Image."
-      parameters:
-      - name: "image_UUID"
-        in: "path"
-        description: "Unique URI of the Image file"
-        required: true
-        type: "string"
-      - in: "body"
-        name: "body"
-        description: "Image infomration object that needs to be linked to the actual\
-          \ Image. (info.JSON)"
-        required: true
-        schema:
-          $ref: "#/definitions/Image"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/Image"
-    delete:
-      tags:
-      - "01. Image"
-      summary: "removes information about an IIIF image file"
-      description: "Remove a IIIF Image information object. Not the actual Image file"
-      parameters:
-      - name: "image_UUID"
-        in: "path"
-        description: "Unique URI of the Image file"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Successfully Removed"
-  /image/{image_UUID}/{region}/{size}/{rotation}/{quality}.{format}:
-    get:
-      tags:
-      - "01. Image"
-      summary: "loads a IIIF Image file"
-      description: "The requested image content is first extracted as a region of\
-        \ the complete image, then scaled to the requested size, mirrored and/or rotated,\
-        \ and finally transformed into the color quality and format.  This resulting\
-        \ image content is returned as the representation for the URI.."
-      parameters:
-      - name: "image_UUID"
-        in: "path"
-        description: "Unique URI of the Image file"
-        required: true
-        type: "string"
-      - name: "region"
-        in: "path"
-        description: "The region parameter defines the rectangular portion of the\
-          \ full image to be returned."
-        required: true
-        type: "string"
-        default: "full"
-      - name: "size"
-        in: "path"
-        description: "The size parameter determines the dimensions to which the extracted\
-          \ region is to be scaled"
-        required: true
-        type: "string"
-        default: "full"
-      - name: "rotation"
-        in: "path"
-        description: "The rotation parameter specifies mirroring and rotation."
-        required: true
-        type: "string"
-        default: "0"
-      - name: "quality"
-        in: "path"
-        description: "The quality parameter determines whether the image is delivered\
-          \ in color, grayscale or black and white."
-        required: true
-        type: "string"
-        default: "default"
-      - name: "format"
-        in: "path"
-        description: "The format of the returned image is expressed as an extension\
-          \ at the end of the URI."
-        required: true
-        type: "string"
-        default: "jpg"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            type: "file"
-            description: "The IIIF Image"
-  /layer:
-    post:
-      tags:
-      - "04. Layer"
-      summary: "uploads information about a Layer"
-      description: "Add a new Layer."
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Layer object. (info.JSON)"
-        required: true
-        schema:
-          $ref: "#/definitions/Layer"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/Layer"
-  /layer/{layer_UUID}:
-    get:
-      tags:
-      - "04. Layer"
-      summary: "loads information about a Layer"
-      description: "Get information about a specific Layer."
-      parameters:
-      - name: "layer_UUID"
-        in: "path"
-        description: "Unique URI of the Layer"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/Layer"
-    put:
-      tags:
-      - "04. Layer"
-      summary: "modifies information about a Layer"
-      description: "Update the information about a specific Layer."
-      parameters:
-      - name: "layer_UUID"
-        in: "path"
-        description: "Unique URI of the Layer"
-        required: true
-        type: "string"
-      - in: "body"
-        name: "body"
-        description: "Layer object. (info.JSON)"
-        required: true
-        schema:
-          $ref: "#/definitions/Layer"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/Layer"
-    delete:
-      tags:
-      - "04. Layer"
-      summary: "removes information about a Layer"
-      description: "Remove a Layer."
-      parameters:
-      - name: "layer_UUID"
-        in: "path"
-        description: "Unique URI of the Layer"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Successfully Removed"
-  /layer/{layer_UUID}/annotation/search:
-    get:
-      tags:
-      - "10. SearchAnnotations"
-      summary: "searches Annotations in a Layer"
-      description: "Search Annotations in a Layer."
-      parameters:
-      - name: "layer_UUID"
-        in: "path"
-        description: "Unique URI of the Layer"
-        required: true
-        type: "string"
-      - name: "q"
-        in: "query"
-        description: "A space separated list of search terms. The search terms may\
-          \ be either words (to search for within textual bodies) or URIs (to search\
-          \ identities of annotation body resources). The semantics of multiple, space\
-          \ separated terms is server implementation dependent."
-        required: true
-        type: "string"
-      - name: "motivation"
-        in: "query"
-        description: "A space separated list of motivation terms. If multiple motivations\
-          \ are supplied, an annotation matches the search if any of the motivations\
-          \ are  present. [sc:painting, non-painting, oa:commenting, oa:describing,\
-          \ oa:tagging, oa:linking]."
-        required: false
-        type: "string"
-      - name: "date"
-        in: "query"
-        description: "A space separated list of date ranges. An annotation matches\
-          \ if the date on which it was created falls within any of the supplied date\
-          \ ranges. The dates must be supplied in the ISO8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ.\
-          \ The dates must be expressed in UTC and must be given in the Z based format."
-        required: false
-        type: "string"
-        format: "date-time"
-      - name: "user"
-        in: "query"
-        description: "A space separated list of URIs that are the identities of users.\
-          \ If multiple users are supplied, an annotation matches the search if any\
-          \ of the users created the annotation."
-        required: false
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/AnnotationList"
-  /layer/{layer_UUID}/export:
-    get:
-      tags:
-      - "12. Export"
-      summary: "exports a Layer"
-      description: "Export a Layer in the format specified."
-      parameters:
-      - name: "layer_UUID"
-        in: "path"
-        description: "Unique URI of the Layer"
-        required: true
-        type: "string"
-      - name: "format"
-        in: "query"
-        description: "The format of the exported file. Eg: csv, xml"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            type: "file"
-            description: "The exported file"
-  /list:
-    post:
-      tags:
-      - "03. AnnotationList"
-      summary: "uploads information about an Annotation List"
-      description: "Add a new Annotation List."
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Annotation List object. (info.JSON)"
-        required: true
-        schema:
-          $ref: "#/definitions/AnnotationList"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/AnnotationList"
-  /list/{list_UUID}:
-    get:
-      tags:
-      - "03. AnnotationList"
-      summary: "loads information about an Annotation List"
-      description: "Get information about a specific Annotation List."
-      parameters:
-      - name: "list_UUID"
-        in: "path"
-        description: "Unique URI of the Annotation List"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/AnnotationList"
-    put:
-      tags:
-      - "03. AnnotationList"
-      summary: "modifies information about an Annotation List"
-      description: "Update the information about a specific Annotation List."
-      parameters:
-      - name: "list_UUID"
-        in: "path"
-        description: "Unique URI of the Annotation List"
-        required: true
-        type: "string"
-      - in: "body"
-        name: "body"
-        description: "Annotation List object. (info.JSON)"
-        required: true
-        schema:
-          $ref: "#/definitions/AnnotationList"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/AnnotationList"
-    delete:
-      tags:
-      - "03. AnnotationList"
-      summary: "removes information about an Annotation List"
-      description: "Remove an Annotation List."
-      parameters:
-      - name: "list_UUID"
-        in: "path"
-        description: "Unique URI of the Annotation List"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Successfully Removed"
-  /list/{list_UUID}/export:
-    get:
-      tags:
-      - "12. Export"
-      summary: "exports a List"
-      description: "Export a List in the format specified."
-      parameters:
-      - name: "list_UUID"
-        in: "path"
-        description: "Unique URI of the Annotation List"
-        required: true
-        type: "string"
-      - name: "format"
-        in: "query"
-        description: "The format of the exported file. Eg: csv, xml"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            type: "file"
-            description: "The exported file"
-  /manifest:
-    post:
-      tags:
-      - "07. Manifest"
-      summary: "uploads information about a Manifest"
-      description: "Add a new Manifest."
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Manifest object. (info.JSON)"
-        required: true
-        schema:
-          $ref: "#/definitions/Manifest"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/Manifest"
-  /manifest/{manifest_UUID}:
-    get:
-      tags:
-      - "07. Manifest"
-      summary: "loads information about a Manifest"
-      description: "Get information about a specific Manifest."
-      parameters:
-      - name: "manifest_UUID"
-        in: "path"
-        description: "Unique URI of the Manifest"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/Manifest"
-    put:
-      tags:
-      - "07. Manifest"
-      summary: "modifies information about a Manifest"
-      description: "Update the information about a specific Manifest."
-      parameters:
-      - name: "manifest_UUID"
-        in: "path"
-        description: "Unique URI of the Manifest"
-        required: true
-        type: "string"
-      - in: "body"
-        name: "body"
-        description: "Manifest object. (info.JSON)"
-        required: true
-        schema:
-          $ref: "#/definitions/Manifest"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/Manifest"
-    delete:
-      tags:
-      - "07. Manifest"
-      summary: "removes information about a Manifest"
-      description: "Remove a Manifest."
-      parameters:
-      - name: "manifest_UUID"
-        in: "path"
-        description: "Unique URI of the Manifest"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Successfully Removed"
-  /manifest/{manifest_UUID}/annotation/search:
-    get:
-      tags:
-      - "10. SearchAnnotations"
-      summary: "searches Annotations in a Manifest"
-      description: "Search Annotations in a Manifest."
-      parameters:
-      - name: "manifest_UUID"
-        in: "path"
-        description: "Unique URI of the Manifest"
-        required: true
-        type: "string"
-      - name: "q"
-        in: "query"
-        description: "A space separated list of search terms. The search terms may\
-          \ be either words (to search for within textual bodies) or URIs (to search\
-          \ identities of annotation body resources). The semantics of multiple, space\
-          \ separated terms is server implementation dependent."
-        required: true
-        type: "string"
-      - name: "motivation"
-        in: "query"
-        description: "A space separated list of motivation terms. If multiple motivations\
-          \ are supplied, an annotation matches the search if any of the motivations\
-          \ are  present. [sc:painting, non-painting, oa:commenting, oa:describing,\
-          \ oa:tagging, oa:linking]."
-        required: false
-        type: "string"
-      - name: "date"
-        in: "query"
-        description: "A space separated list of date ranges. An annotation matches\
-          \ if the date on which it was created falls within any of the supplied date\
-          \ ranges. The dates must be supplied in the ISO8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ.\
-          \ The dates must be expressed in UTC and must be given in the Z based format."
-        required: false
-        type: "string"
-        format: "date-time"
-      - name: "user"
-        in: "query"
-        description: "A space separated list of URIs that are the identities of users.\
-          \ If multiple users are supplied, an annotation matches the search if any\
-          \ of the users created the annotation."
-        required: false
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/AnnotationList"
-  /manifest/{manifest_UUID}/export:
-    get:
-      tags:
-      - "12. Export"
-      summary: "exports a Manifest"
-      description: "Export a Manifest in the format specified."
-      parameters:
-      - name: "manifest_UUID"
-        in: "path"
-        description: "Unique URI of the Manifest"
-        required: true
-        type: "string"
-      - name: "format"
-        in: "query"
-        description: "The format of the exported file. Eg: csv, xml"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            type: "file"
-            description: "The exported file"
   /range:
     post:
       tags:
@@ -874,100 +438,148 @@ paths:
       responses:
         200:
           description: "Successfully Removed"
-  /range/{range_UUID}/annotation/search:
+  /manifest:
+    post:
+      tags:
+      - "07. Manifest"
+      summary: "uploads information about a Manifest"
+      description: "Add a new Manifest."
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Manifest object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Manifest"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Manifest"
+  /manifest/{manifest_UUID}:
     get:
       tags:
-      - "10. SearchAnnotations"
-      summary: "searches Annotations in a Range"
-      description: "Search Annotations in a Range."
+      - "07. Manifest"
+      summary: "loads information about a Manifest"
+      description: "Get information about a specific Manifest."
       parameters:
-      - name: "range_UUID"
+      - name: "manifest_UUID"
         in: "path"
-        description: "Unique URI of the Range"
+        description: "Unique URI of the Manifest"
         required: true
-        type: "string"
-      - name: "q"
-        in: "query"
-        description: "A space separated list of search terms. The search terms may\
-          \ be either words (to search for within textual bodies) or URIs (to search\
-          \ identities of annotation body resources). The semantics of multiple, space\
-          \ separated terms is server implementation dependent."
-        required: true
-        type: "string"
-      - name: "motivation"
-        in: "query"
-        description: "A space separated list of motivation terms. If multiple motivations\
-          \ are supplied, an annotation matches the search if any of the motivations\
-          \ are  present. [sc:painting, non-painting, oa:commenting, oa:describing,\
-          \ oa:tagging, oa:linking]."
-        required: false
-        type: "string"
-      - name: "date"
-        in: "query"
-        description: "A space separated list of date ranges. An annotation matches\
-          \ if the date on which it was created falls within any of the supplied date\
-          \ ranges. The dates must be supplied in the ISO8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ.\
-          \ The dates must be expressed in UTC and must be given in the Z based format."
-        required: false
-        type: "string"
-        format: "date-time"
-      - name: "user"
-        in: "query"
-        description: "A space separated list of URIs that are the identities of users.\
-          \ If multiple users are supplied, an annotation matches the search if any\
-          \ of the users created the annotation."
-        required: false
         type: "string"
       responses:
         200:
           description: "Success"
           schema:
-            $ref: "#/definitions/AnnotationList"
-  /range/{range_UUID}/export:
-    get:
+            $ref: "#/definitions/Manifest"
+    put:
       tags:
-      - "12. Export"
-      summary: "exports a Range"
-      description: "Export a Range in the format specified."
+      - "07. Manifest"
+      summary: "modifies information about a Manifest"
+      description: "Update the information about a specific Manifest."
       parameters:
-      - name: "range_UUID"
+      - name: "manifest_UUID"
         in: "path"
-        description: "Unique URI of the Range"
+        description: "Unique URI of the Manifest"
         required: true
         type: "string"
-      - name: "format"
-        in: "query"
-        description: "The format of the exported file. Eg: csv, xml"
+      - in: "body"
+        name: "body"
+        description: "Manifest object. (info.JSON)"
         required: true
-        type: "string"
+        schema:
+          $ref: "#/definitions/Manifest"
       responses:
         200:
           description: "Success"
           schema:
-            type: "file"
-            description: "The exported file"
-  /search:
+            $ref: "#/definitions/Manifest"
+    delete:
+      tags:
+      - "07. Manifest"
+      summary: "removes information about a Manifest"
+      description: "Remove a Manifest."
+      parameters:
+      - name: "manifest_UUID"
+        in: "path"
+        description: "Unique URI of the Manifest"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successfully Removed"
+  /collection:
+    post:
+      tags:
+      - "08. Collection"
+      summary: "uploads information about a Collection"
+      description: "Add a new Collection."
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Collection object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Collection"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Collection"
+  /collection/{collection_UUID}:
     get:
       tags:
-      - "11. SearchMetaData"
-      summary: "searches for metadata in Manifests and Collections that matches the\
-        \ query"
-      description: "Search Collections and Manifests with metadata that matches the\
-        \ given Query."
+      - "08. Collection"
+      summary: "loads information about a Collection"
+      description: "Get information about a specific Collection."
       parameters:
-      - name: "q"
-        in: "query"
-        description: "A space separated list of search terms. The search terms may\
-          \ be either words (to search for within textual bodies) or URIs (to search\
-          \ identities of annotation body resources). The semantics of multiple, space\
-          \ separated terms is server implementation dependent."
+      - name: "collection_UUID"
+        in: "path"
+        description: "Unique URI of the Collection"
         required: true
         type: "string"
       responses:
         200:
           description: "Success"
           schema:
-            $ref: "#/definitions/GlobalSearch"
+            $ref: "#/definitions/Collection"
+    put:
+      tags:
+      - "08. Collection"
+      summary: "modifies information about a Collection"
+      description: "Update the information about a specific Collection."
+      parameters:
+      - name: "collection_UUID"
+        in: "path"
+        description: "Unique URI of the Collection"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Collection object. (info.JSON)"
+        required: true
+        schema:
+          $ref: "#/definitions/Collection"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Collection"
+    delete:
+      tags:
+      - "08. Collection"
+      summary: "removes information about a Collection"
+      description: "Remove a Collection."
+      parameters:
+      - name: "collection_UUID"
+        in: "path"
+        description: "Unique URI of the Collection"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successfully Removed"
   /sequence:
     post:
       tags:
@@ -1039,6 +651,104 @@ paths:
       responses:
         200:
           description: "Successfully Removed"
+  /collection/{collection_UUID}/annotation/search:
+    get:
+      tags:
+      - "10. SearchAnnotations"
+      summary: "searches Annotations in a Collection"
+      description: "Search Annotations in a Collection."
+      parameters:
+      - name: "collection_UUID"
+        in: "path"
+        description: "Unique URI of the Collection"
+        required: true
+        type: "string"
+      - name: "q"
+        in: "query"
+        description: "A space separated list of search terms. The search terms may\
+          \ be either words (to search for within textual bodies) or URIs (to search\
+          \ identities of annotation body resources). The semantics of multiple, space\
+          \ separated terms is server implementation dependent."
+        required: true
+        type: "string"
+      - name: "motivation"
+        in: "query"
+        description: "A space separated list of motivation terms. If multiple motivations\
+          \ are supplied, an annotation matches the search if any of the motivations\
+          \ are  present. [sc:painting, non-painting, oa:commenting, oa:describing,\
+          \ oa:tagging, oa:linking]."
+        required: false
+        type: "string"
+      - name: "date"
+        in: "query"
+        description: "A space separated list of date ranges. An annotation matches\
+          \ if the date on which it was created falls within any of the supplied date\
+          \ ranges. The dates must be supplied in the ISO8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ.\
+          \ The dates must be expressed in UTC and must be given in the Z based format."
+        required: false
+        type: "string"
+        format: "date-time"
+      - name: "user"
+        in: "query"
+        description: "A space separated list of URIs that are the identities of users.\
+          \ If multiple users are supplied, an annotation matches the search if any\
+          \ of the users created the annotation."
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/AnnotationList"
+  /manifest/{manifest_UUID}/annotation/search:
+    get:
+      tags:
+      - "10. SearchAnnotations"
+      summary: "searches Annotations in a Manifest"
+      description: "Search Annotations in a Manifest."
+      parameters:
+      - name: "manifest_UUID"
+        in: "path"
+        description: "Unique URI of the Manifest"
+        required: true
+        type: "string"
+      - name: "q"
+        in: "query"
+        description: "A space separated list of search terms. The search terms may\
+          \ be either words (to search for within textual bodies) or URIs (to search\
+          \ identities of annotation body resources). The semantics of multiple, space\
+          \ separated terms is server implementation dependent."
+        required: true
+        type: "string"
+      - name: "motivation"
+        in: "query"
+        description: "A space separated list of motivation terms. If multiple motivations\
+          \ are supplied, an annotation matches the search if any of the motivations\
+          \ are  present. [sc:painting, non-painting, oa:commenting, oa:describing,\
+          \ oa:tagging, oa:linking]."
+        required: false
+        type: "string"
+      - name: "date"
+        in: "query"
+        description: "A space separated list of date ranges. An annotation matches\
+          \ if the date on which it was created falls within any of the supplied date\
+          \ ranges. The dates must be supplied in the ISO8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ.\
+          \ The dates must be expressed in UTC and must be given in the Z based format."
+        required: false
+        type: "string"
+        format: "date-time"
+      - name: "user"
+        in: "query"
+        description: "A space separated list of URIs that are the identities of users.\
+          \ If multiple users are supplied, an annotation matches the search if any\
+          \ of the users created the annotation."
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/AnnotationList"
   /sequence/{sequence_UUID}/annotation/search:
     get:
       tags:
@@ -1088,6 +798,241 @@ paths:
           description: "Success"
           schema:
             $ref: "#/definitions/AnnotationList"
+  /range/{range_UUID}/annotation/search:
+    get:
+      tags:
+      - "10. SearchAnnotations"
+      summary: "searches Annotations in a Range"
+      description: "Search Annotations in a Range."
+      parameters:
+      - name: "range_UUID"
+        in: "path"
+        description: "Unique URI of the Range"
+        required: true
+        type: "string"
+      - name: "q"
+        in: "query"
+        description: "A space separated list of search terms. The search terms may\
+          \ be either words (to search for within textual bodies) or URIs (to search\
+          \ identities of annotation body resources). The semantics of multiple, space\
+          \ separated terms is server implementation dependent."
+        required: true
+        type: "string"
+      - name: "motivation"
+        in: "query"
+        description: "A space separated list of motivation terms. If multiple motivations\
+          \ are supplied, an annotation matches the search if any of the motivations\
+          \ are  present. [sc:painting, non-painting, oa:commenting, oa:describing,\
+          \ oa:tagging, oa:linking]."
+        required: false
+        type: "string"
+      - name: "date"
+        in: "query"
+        description: "A space separated list of date ranges. An annotation matches\
+          \ if the date on which it was created falls within any of the supplied date\
+          \ ranges. The dates must be supplied in the ISO8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ.\
+          \ The dates must be expressed in UTC and must be given in the Z based format."
+        required: false
+        type: "string"
+        format: "date-time"
+      - name: "user"
+        in: "query"
+        description: "A space separated list of URIs that are the identities of users.\
+          \ If multiple users are supplied, an annotation matches the search if any\
+          \ of the users created the annotation."
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/AnnotationList"
+  /layer/{layer_UUID}/annotation/search:
+    get:
+      tags:
+      - "10. SearchAnnotations"
+      summary: "searches Annotations in a Layer"
+      description: "Search Annotations in a Layer."
+      parameters:
+      - name: "layer_UUID"
+        in: "path"
+        description: "Unique URI of the Layer"
+        required: true
+        type: "string"
+      - name: "q"
+        in: "query"
+        description: "A space separated list of search terms. The search terms may\
+          \ be either words (to search for within textual bodies) or URIs (to search\
+          \ identities of annotation body resources). The semantics of multiple, space\
+          \ separated terms is server implementation dependent."
+        required: true
+        type: "string"
+      - name: "motivation"
+        in: "query"
+        description: "A space separated list of motivation terms. If multiple motivations\
+          \ are supplied, an annotation matches the search if any of the motivations\
+          \ are  present. [sc:painting, non-painting, oa:commenting, oa:describing,\
+          \ oa:tagging, oa:linking]."
+        required: false
+        type: "string"
+      - name: "date"
+        in: "query"
+        description: "A space separated list of date ranges. An annotation matches\
+          \ if the date on which it was created falls within any of the supplied date\
+          \ ranges. The dates must be supplied in the ISO8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ.\
+          \ The dates must be expressed in UTC and must be given in the Z based format."
+        required: false
+        type: "string"
+        format: "date-time"
+      - name: "user"
+        in: "query"
+        description: "A space separated list of URIs that are the identities of users.\
+          \ If multiple users are supplied, an annotation matches the search if any\
+          \ of the users created the annotation."
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/AnnotationList"
+  /search:
+    get:
+      tags:
+      - "11. SearchMetaData"
+      summary: "searches for metadata in Manifests and Collections that matches the\
+        \ query"
+      description: "Search Collections and Manifests with metadata that matches the\
+        \ given Query."
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "A space separated list of search terms. The search terms may\
+          \ be either words (to search for within textual bodies) or URIs (to search\
+          \ identities of annotation body resources). The semantics of multiple, space\
+          \ separated terms is server implementation dependent."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/GlobalSearch"
+  /collection/{collection_UUID}/export:
+    get:
+      tags:
+      - "12. Export"
+      summary: "exports a Collection"
+      description: "Export a Collection in the format specified."
+      parameters:
+      - name: "collection_UUID"
+        in: "path"
+        description: "Unique URI of the Collection"
+        required: true
+        type: "string"
+      - name: "format"
+        in: "query"
+        description: "The format of the exported file. Eg: csv, xml"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "file"
+            description: "The exported file"
+  /manifest/{manifest_UUID}/export:
+    get:
+      tags:
+      - "12. Export"
+      summary: "exports a Manifest"
+      description: "Export a Manifest in the format specified."
+      parameters:
+      - name: "manifest_UUID"
+        in: "path"
+        description: "Unique URI of the Manifest"
+        required: true
+        type: "string"
+      - name: "format"
+        in: "query"
+        description: "The format of the exported file. Eg: csv, xml"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "file"
+            description: "The exported file"
+  /range/{range_UUID}/export:
+    get:
+      tags:
+      - "12. Export"
+      summary: "exports a Range"
+      description: "Export a Range in the format specified."
+      parameters:
+      - name: "range_UUID"
+        in: "path"
+        description: "Unique URI of the Range"
+        required: true
+        type: "string"
+      - name: "format"
+        in: "query"
+        description: "The format of the exported file. Eg: csv, xml"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "file"
+            description: "The exported file"
+  /layer/{layer_UUID}/export:
+    get:
+      tags:
+      - "12. Export"
+      summary: "exports a Layer"
+      description: "Export a Layer in the format specified."
+      parameters:
+      - name: "layer_UUID"
+        in: "path"
+        description: "Unique URI of the Layer"
+        required: true
+        type: "string"
+      - name: "format"
+        in: "query"
+        description: "The format of the exported file. Eg: csv, xml"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "file"
+            description: "The exported file"
+  /list/{list_UUID}/export:
+    get:
+      tags:
+      - "12. Export"
+      summary: "exports a List"
+      description: "Export a List in the format specified."
+      parameters:
+      - name: "list_UUID"
+        in: "path"
+        description: "Unique URI of the Annotation List"
+        required: true
+        type: "string"
+      - name: "format"
+        in: "query"
+        description: "The format of the exported file. Eg: csv, xml"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "file"
+            description: "The exported file"
 definitions:
   Image:
     required:
@@ -1927,21 +1872,21 @@ definitions:
       \ fields of the resources."
   Resource_thumbnail:
     properties:
-      service:
-        $ref: "#/definitions/Service"
       '@id':
         type: "string"
         description: "The entire URI of the IIIF image."
+      service:
+        $ref: "#/definitions/Service"
     description: "A IIIF Image to be displayed as Thumbnail. A content resource may\
       \ have one or more thumbnails and should have at least one thumbnail if it is\
       \ an option in a choice of resources."
   Canvas_thumbnail:
     properties:
-      service:
-        $ref: "#/definitions/Service"
       '@id':
         type: "string"
         description: "The entire URI of the IIIF image."
+      service:
+        $ref: "#/definitions/Service"
     description: "A IIIF Image to be displayed as Thumbnail. A canvas may have one\
       \ or more thumbnails and should have at least one thumbnail if there are multiple\
       \ images or resources that make up the representation."
@@ -1956,22 +1901,22 @@ definitions:
         description: "Annotation URI"
   Sequence_thumbnail:
     properties:
-      service:
-        $ref: "#/definitions/Service"
       '@id':
         type: "string"
         description: "The entire URI of the IIIF image."
+      service:
+        $ref: "#/definitions/Service"
     description: "A IIIF Image to be displayed as Thumbnail. AA sequence may have\
       \ one or more thumbnails and should have at least one thumbnail if there are\
       \ multiple sequences in a single manifest."
   Range_members:
     properties:
-      '@type':
-        type: "string"
-        description: "sc:Range or sc:Canvas"
       '@id':
         type: "string"
         description: "A Canvas or Range object"
+      '@type':
+        type: "string"
+        description: "sc:Range or sc:Canvas"
       label:
         type: "string"
         description: "Short description. [Front Cover, Back Cover, Introduction]"
@@ -1984,31 +1929,31 @@ definitions:
         description: "The metadata property to be described"
   Manifest_thumbnail:
     properties:
-      service:
-        $ref: "#/definitions/Service"
       '@id':
         type: "string"
         description: "The entire URI of the IIIF image."
+      service:
+        $ref: "#/definitions/Service"
     description: "A IIIF Image to be displayed as Thumbnail. A manifest should have\
       \ exactly one thumbnail image, and may have more than one."
   Manifest_logo:
     properties:
-      service:
-        $ref: "#/definitions/Service"
       '@id':
         type: "string"
         description: "The entire URI path to the Image resource."
+      service:
+        $ref: "#/definitions/Service"
     description: "A small image that represents an individual or organization associated\
       \ with the resource it is attached to. This could be the logo of the owning\
       \ or hosting institution. Any resource type may have one or more logos associated\
       \ with it."
   Collection_thumbnail:
     properties:
-      service:
-        $ref: "#/definitions/Service"
       '@id':
         type: "string"
         description: "The entire URI of the IIIF image."
+      service:
+        $ref: "#/definitions/Service"
     description: "A IIIF Image to be displayed as Thumbnail. A collection should have\
       \ exactly one thumbnail image, and may have more than one."
   Collection_members:
@@ -2017,19 +1962,19 @@ definitions:
     - "@type"
     - "label"
     properties:
+      '@id':
+        type: "string"
+        description: "The URI of the Collection or Manifest."
+      '@type':
+        type: "string"
+        description: "sc:Collection or sc:Manifest"
+      label:
+        type: "string"
+        description: "The description of the Collection or Manifest"
       viewingHint:
         type: "string"
         description: "If the entry is a Collection, then viewingHint must also be\
           \ present."
-      '@type':
-        type: "string"
-        description: "sc:Collection or sc:Manifest"
-      '@id':
-        type: "string"
-        description: "The URI of the Collection or Manifest."
-      label:
-        type: "string"
-        description: "The description of the Collection or Manifest"
 parameters:
   image_UUID:
     name: "image_UUID"
